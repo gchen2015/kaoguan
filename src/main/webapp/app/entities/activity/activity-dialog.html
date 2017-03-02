@@ -1,0 +1,172 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myActivityLabel" data-translate="kaoguanApp.activity.home.createOrEditLabel">Create or edit a Activity</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.activity.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.activity.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.activity.name"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.activity.description"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.originaztion" for="field_originaztion">Originaztion</label>
+            <input type="text" class="form-control" name="originaztion" id="field_originaztion"
+                    ng-model="vm.activity.originaztion"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.dateTime" for="field_dateTime">Date Time</label>
+                <div class="input-group">
+                    <input id="field_dateTime" type="text" class="form-control" name="dateTime" uib-datepicker-popup="{{dateformat}}" ng-model="vm.activity.dateTime" is-open="vm.datePickerOpenStatus.dateTime"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.ageRanger" for="field_ageRanger">Age Ranger</label>
+            <input type="text" class="form-control" name="ageRanger" id="field_ageRanger"
+                    ng-model="vm.activity.ageRanger"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.price" for="field_price">Price</label>
+            <input type="text" class="form-control" name="price" id="field_price"
+                    ng-model="vm.activity.price"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.remark" for="field_remark">Remark</label>
+            <input type="text" class="form-control" name="remark" id="field_remark"
+                    ng-model="vm.activity.remark"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.locationCity" for="field_locationCity">Location City</label>
+            <input type="text" class="form-control" name="locationCity" id="field_locationCity"
+                    ng-model="vm.activity.locationCity"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                    ng-model="vm.activity.address"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.starCount" for="field_starCount">Star Count</label>
+            <input type="number" class="form-control" name="starCount" id="field_starCount"
+                    ng-model="vm.activity.starCount"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.joinPersonCount" for="field_joinPersonCount">Join Person Count</label>
+            <input type="number" class="form-control" name="joinPersonCount" id="field_joinPersonCount"
+                    ng-model="vm.activity.joinPersonCount"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.commentCount" for="field_commentCount">Comment Count</label>
+            <input type="number" class="form-control" name="commentCount" id="field_commentCount"
+                    ng-model="vm.activity.commentCount"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.image1" for="field_image1">Image 1</label>
+            <input type="text" class="form-control" name="image1" id="field_image1"
+                    ng-model="vm.activity.image1"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.image2" for="field_image2">Image 2</label>
+            <input type="text" class="form-control" name="image2" id="field_image2"
+                    ng-model="vm.activity.image2"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.image3" for="field_image3">Image 3</label>
+            <input type="text" class="form-control" name="image3" id="field_image3"
+                    ng-model="vm.activity.image3"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.image4" for="field_image4">Image 4</label>
+            <input type="text" class="form-control" name="image4" id="field_image4"
+                    ng-model="vm.activity.image4"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.activityType" for="field_activityType">Activity Type</label>
+            <select class="form-control" name="activityType" ng-model="vm.activity.activityType" id="field_activityType">
+                <option value="Product" data-translate="kaoguanApp.ActivityType.Product">Product</option>
+                <option value="Test" data-translate="kaoguanApp.ActivityType.Test">Test</option>
+                <option value="Activity" data-translate="kaoguanApp.ActivityType.Activity">Activity</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.createTime" for="field_createTime">Create Time</label>
+                <div class="input-group">
+                    <input id="field_createTime" type="text" class="form-control" name="createTime" uib-datepicker-popup="{{dateformat}}" ng-model="vm.activity.createTime" is-open="vm.datePickerOpenStatus.createTime"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.updateTime" for="field_updateTime">Update Time</label>
+                <div class="input-group">
+                    <input id="field_updateTime" type="text" class="form-control" name="updateTime" uib-datepicker-popup="{{dateformat}}" ng-model="vm.activity.updateTime" is-open="vm.datePickerOpenStatus.updateTime"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.delFlag" for="field_delFlag">Del Flag</label>
+            <input type="number" class="form-control" name="delFlag" id="field_delFlag"
+                    ng-model="vm.activity.delFlag"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="kaoguanApp.activity.creator" for="field_creator">Creator</label>
+            <select class="form-control" id="field_creator" name="creator" ng-model="vm.activity.creator" ng-options="user as user.login for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="kaoguanApp.activity.updator" for="field_updator">Updator</label>
+            <select class="form-control" id="field_updator" name="updator" ng-model="vm.activity.updator" ng-options="user as user.login for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

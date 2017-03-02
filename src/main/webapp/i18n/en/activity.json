@@ -1,0 +1,42 @@
+{
+    "kaoguanApp": {
+        "activity" : {
+            "home": {
+                "title": "Activities",
+                "createLabel": "Create a new Activity",
+                "createOrEditLabel": "Create or edit a Activity"
+            },
+            "created": "A new Activity is created with identifier {{ param }}",
+            "updated": "A Activity is updated with identifier {{ param }}",
+            "deleted": "A Activity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Activity {{ id }}?"
+            },
+            "detail": {
+                "title": "Activity"
+            },
+            "name": "Name",
+            "description": "Description",
+            "originaztion": "Originaztion",
+            "dateTime": "Date Time",
+            "ageRanger": "Age Ranger",
+            "price": "Price",
+            "remark": "Remark",
+            "locationCity": "Location City",
+            "address": "Address",
+            "starCount": "Star Count",
+            "joinPersonCount": "Join Person Count",
+            "commentCount": "Comment Count",
+            "image1": "Image 1",
+            "image2": "Image 2",
+            "image3": "Image 3",
+            "image4": "Image 4",
+            "activityType": "Activity Type",
+            "createTime": "Create Time",
+            "updateTime": "Update Time",
+            "delFlag": "Del Flag",
+            "creator": "Creator",
+            "updator": "Updator"
+        }
+    }
+}

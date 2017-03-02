@@ -1,0 +1,102 @@
+<div>
+    <h2 data-translate="kaoguanApp.activity.home.title">Activities</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="activity.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="kaoguanApp.activity.home.createLabel">
+                        Create new Activity
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="kaoguanApp.activity.name">Name</span></th>
+                    <th><span data-translate="kaoguanApp.activity.description">Description</span></th>
+                    <th><span data-translate="kaoguanApp.activity.originaztion">Originaztion</span></th>
+                    <th><span data-translate="kaoguanApp.activity.dateTime">Date Time</span></th>
+                    <th><span data-translate="kaoguanApp.activity.ageRanger">Age Ranger</span></th>
+                    <th><span data-translate="kaoguanApp.activity.price">Price</span></th>
+                    <th><span data-translate="kaoguanApp.activity.remark">Remark</span></th>
+                    <th><span data-translate="kaoguanApp.activity.locationCity">Location City</span></th>
+                    <th><span data-translate="kaoguanApp.activity.address">Address</span></th>
+                    <th><span data-translate="kaoguanApp.activity.starCount">Star Count</span></th>
+                    <th><span data-translate="kaoguanApp.activity.joinPersonCount">Join Person Count</span></th>
+                    <th><span data-translate="kaoguanApp.activity.commentCount">Comment Count</span></th>
+                    <th><span data-translate="kaoguanApp.activity.image1">Image 1</span></th>
+                    <th><span data-translate="kaoguanApp.activity.image2">Image 2</span></th>
+                    <th><span data-translate="kaoguanApp.activity.image3">Image 3</span></th>
+                    <th><span data-translate="kaoguanApp.activity.image4">Image 4</span></th>
+                    <th><span data-translate="kaoguanApp.activity.activityType">Activity Type</span></th>
+                    <th><span data-translate="kaoguanApp.activity.createTime">Create Time</span></th>
+                    <th><span data-translate="kaoguanApp.activity.updateTime">Update Time</span></th>
+                    <th><span data-translate="kaoguanApp.activity.delFlag">Del Flag</span></th>
+                    <th><span data-translate="kaoguanApp.activity.creator">Creator</span></th>
+                    <th><span data-translate="kaoguanApp.activity.updator">Updator</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="activity in vm.activities track by activity.id">
+                    <td><a ui-sref="activity-detail({id:activity.id})">{{activity.id}}</a></td>
+                    <td>{{activity.name}}</td>
+                    <td>{{activity.description}}</td>
+                    <td>{{activity.originaztion}}</td>
+                        <td>{{activity.dateTime | date:'mediumDate'}}</td>
+                    <td>{{activity.ageRanger}}</td>
+                    <td>{{activity.price}}</td>
+                    <td>{{activity.remark}}</td>
+                    <td>{{activity.locationCity}}</td>
+                    <td>{{activity.address}}</td>
+                    <td>{{activity.starCount}}</td>
+                    <td>{{activity.joinPersonCount}}</td>
+                    <td>{{activity.commentCount}}</td>
+                    <td>{{activity.image1}}</td>
+                    <td>{{activity.image2}}</td>
+                    <td>{{activity.image3}}</td>
+                    <td>{{activity.image4}}</td>
+                    <td data-translate="{{'kaoguanApp.ActivityType.' + activity.activityType}}">{{activity.activityType}}</td>
+                        <td>{{activity.createTime | date:'mediumDate'}}</td>
+                        <td>{{activity.updateTime | date:'mediumDate'}}</td>
+                    <td>{{activity.delFlag}}</td>
+                    <td>
+                        {{activity.creator.login}}
+                    </td>
+                    <td>
+                        {{activity.updator.login}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="activity-detail({id:activity.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="activity.edit({id:activity.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="activity.delete({id:activity.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

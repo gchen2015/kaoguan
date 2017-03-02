@@ -1,0 +1,10 @@
+{
+    "kaoguanApp": {
+        "ActivityType" : {
+            "null": "",
+            "Product": "Product",
+            "Test": "Test",
+            "Activity": "Activity"
+        }
+    }
+}
