@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span data-translate="kaoguanApp.comment.detail.title">Comment</span> {{vm.comment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="kaoguanApp.comment.description">Description</span></dt>
+        <dd>
+            <span>{{vm.comment.description}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.comment.remark">Remark</span></dt>
+        <dd>
+            <span>{{vm.comment.remark}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.comment.dateTime">Date Time</span></dt>
+        <dd>
+            <span>{{vm.comment.dateTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.comment.image1">Image 1</span></dt>
+        <dd>
+            <span>{{vm.comment.image1}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.comment.image2">Image 2</span></dt>
+        <dd>
+            <span>{{vm.comment.image2}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.comment.image3">Image 3</span></dt>
+        <dd>
+            <span>{{vm.comment.image3}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.comment.image4">Image 4</span></dt>
+        <dd>
+            <span>{{vm.comment.image4}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.comment.user">User</span></dt>
+        <dd>
+            {{vm.comment.user.login}}
+        </dd>
+        <dt><span data-translate="kaoguanApp.comment.activity">Activity</span></dt>
+        <dd>
+            <a ui-sref="activity-detail({id:vm.comment.activity.id})">{{vm.comment.activity.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="comment-detail.edit({id:vm.comment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

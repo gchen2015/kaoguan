@@ -22,5 +22,15 @@
 
     <cache alias="com.kaoguan.app.domain.Activity" uses-template="simple"/>
 
+    <cache alias="com.kaoguan.app.domain.Comment" uses-template="simple"/>
+
+    <cache alias="com.kaoguan.app.domain.JoinActivity" uses-template="simple"/>
+
+    <cache alias="com.kaoguan.app.domain.JoinActivity.activities" uses-template="simple"/>
+
+    <cache alias="com.kaoguan.app.domain.PreferActivity" uses-template="simple"/>
+
+    <cache alias="com.kaoguan.app.domain.StarActivity" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>

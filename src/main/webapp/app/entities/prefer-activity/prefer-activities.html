@@ -1,0 +1,66 @@
+<div>
+    <h2 data-translate="kaoguanApp.preferActivity.home.title">Prefer Activities</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="prefer-activity.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="kaoguanApp.preferActivity.home.createLabel">
+                        Create new Prefer Activity
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="kaoguanApp.preferActivity.delFlag">Del Flag</span></th>
+                    <th><span data-translate="kaoguanApp.preferActivity.createDateTime">Create Date Time</span></th>
+                    <th><span data-translate="kaoguanApp.preferActivity.perferUser">Perfer User</span></th>
+                    <th><span data-translate="kaoguanApp.preferActivity.activity">Activity</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="preferActivity in vm.preferActivities track by preferActivity.id">
+                    <td><a ui-sref="prefer-activity-detail({id:preferActivity.id})">{{preferActivity.id}}</a></td>
+                    <td>{{preferActivity.delFlag}}</td>
+                    <td>{{preferActivity.createDateTime | date:'medium'}}</td>
+                    <td>
+                        {{preferActivity.perferUser.login}}
+                    </td>
+                    <td>
+                        <a ui-sref="activity-detail({id:preferActivity.activity.id})">{{preferActivity.activity.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="prefer-activity-detail({id:preferActivity.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="prefer-activity.edit({id:preferActivity.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="prefer-activity.delete({id:preferActivity.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

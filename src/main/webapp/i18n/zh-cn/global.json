@@ -8,6 +8,10 @@
             "entities": {
                 "main": "数据",
                 "activity": "Activity",
+                "comment": "Comment",
+                "joinActivity": "Join Activity",
+                "preferActivity": "Prefer Activity",
+                "starActivity": "Star Activity",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

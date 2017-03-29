@@ -1,0 +1,24 @@
+{
+    "kaoguanApp": {
+        "joinActivity" : {
+            "home": {
+                "title": "Join Activities",
+                "createLabel": "Create a new Join Activity",
+                "createOrEditLabel": "Create or edit a Join Activity"
+            },
+            "created": "A new Join Activity is created with identifier {{ param }}",
+            "updated": "A Join Activity is updated with identifier {{ param }}",
+            "deleted": "A Join Activity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Join Activity {{ id }}?"
+            },
+            "detail": {
+                "title": "Join Activity"
+            },
+            "createDateTime": "Create Date Time",
+            "delFlag": "Del Flag",
+            "joinUser": "Join User",
+            "activity": "Activity"
+        }
+    }
+}

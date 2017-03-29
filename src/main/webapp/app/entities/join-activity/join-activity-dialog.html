@@ -1,0 +1,54 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myJoinActivityLabel" data-translate="kaoguanApp.joinActivity.home.createOrEditLabel">Create or edit a Join Activity</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.joinActivity.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.joinActivity.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.joinActivity.createDateTime" for="field_createDateTime">Create Date Time</label>
+                <div class="input-group">
+                    <input id="field_createDateTime" type="text" class="form-control" name="createDateTime" datetime-picker="{{dateformat}}" ng-model="vm.joinActivity.createDateTime" is-open="vm.datePickerOpenStatus.createDateTime"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createDateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.joinActivity.delFlag" for="field_delFlag">Del Flag</label>
+            <input type="number" class="form-control" name="delFlag" id="field_delFlag"
+                    ng-model="vm.joinActivity.delFlag"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="kaoguanApp.joinActivity.joinUser" for="field_joinUser">Join User</label>
+            <select class="form-control" id="field_joinUser" name="joinUser" ng-model="vm.joinActivity.joinUser" ng-options="user as user.login for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="kaoguanApp.joinActivity.activity" for="field_activity">Activity</label>
+            <select class="form-control" id="field_activity" name="activity" ng-model="vm.joinActivity.activity" ng-options="activity as activity.id for activity in vm.activities track by activity.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

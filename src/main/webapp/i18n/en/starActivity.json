@@ -1,0 +1,24 @@
+{
+    "kaoguanApp": {
+        "starActivity" : {
+            "home": {
+                "title": "Star Activities",
+                "createLabel": "Create a new Star Activity",
+                "createOrEditLabel": "Create or edit a Star Activity"
+            },
+            "created": "A new Star Activity is created with identifier {{ param }}",
+            "updated": "A Star Activity is updated with identifier {{ param }}",
+            "deleted": "A Star Activity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Star Activity {{ id }}?"
+            },
+            "detail": {
+                "title": "Star Activity"
+            },
+            "delFlag": "Del Flag",
+            "createDateTime": "Create Date Time",
+            "user": "User",
+            "activity": "Activity"
+        }
+    }
+}

@@ -1,0 +1,84 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCommentLabel" data-translate="kaoguanApp.comment.home.createOrEditLabel">Create or edit a Comment</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.comment.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.comment.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.comment.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.comment.description"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.comment.remark" for="field_remark">Remark</label>
+            <input type="text" class="form-control" name="remark" id="field_remark"
+                    ng-model="vm.comment.remark"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.comment.dateTime" for="field_dateTime">Date Time</label>
+                <div class="input-group">
+                    <input id="field_dateTime" type="text" class="form-control" name="dateTime" uib-datepicker-popup="{{dateformat}}" ng-model="vm.comment.dateTime" is-open="vm.datePickerOpenStatus.dateTime"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.comment.image1" for="field_image1">Image 1</label>
+            <input type="text" class="form-control" name="image1" id="field_image1"
+                    ng-model="vm.comment.image1"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.comment.image2" for="field_image2">Image 2</label>
+            <input type="text" class="form-control" name="image2" id="field_image2"
+                    ng-model="vm.comment.image2"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.comment.image3" for="field_image3">Image 3</label>
+            <input type="text" class="form-control" name="image3" id="field_image3"
+                    ng-model="vm.comment.image3"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.comment.image4" for="field_image4">Image 4</label>
+            <input type="text" class="form-control" name="image4" id="field_image4"
+                    ng-model="vm.comment.image4"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="kaoguanApp.comment.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.comment.user" ng-options="user as user.login for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="kaoguanApp.comment.activity" for="field_activity">Activity</label>
+            <select class="form-control" id="field_activity" name="activity" ng-model="vm.comment.activity" ng-options="activity as activity.id for activity in vm.activities track by activity.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

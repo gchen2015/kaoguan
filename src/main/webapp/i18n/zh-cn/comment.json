@@ -1,0 +1,29 @@
+{
+    "kaoguanApp": {
+        "comment" : {
+            "home": {
+                "title": "Comments",
+                "createLabel": "Create a new Comment",
+                "createOrEditLabel": "Create or edit a Comment"
+            },
+            "created": "A new Comment is created with identifier {{ param }}",
+            "updated": "A Comment is updated with identifier {{ param }}",
+            "deleted": "A Comment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Comment {{ id }}?"
+            },
+            "detail": {
+                "title": "Comment"
+            },
+            "description": "Description",
+            "remark": "Remark",
+            "dateTime": "Date Time",
+            "image1": "Image 1",
+            "image2": "Image 2",
+            "image3": "Image 3",
+            "image4": "Image 4",
+            "user": "User",
+            "activity": "Activity"
+        }
+    }
+}
