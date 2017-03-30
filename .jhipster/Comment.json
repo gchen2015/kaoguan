@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "comment"
+        },
+        {
+            "relationshipName": "activity",
+            "otherEntityName": "activity",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remark",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateTime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "image1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image4",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170329082952",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "comment",
+    "pagination": "no"
+}

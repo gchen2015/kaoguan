@@ -1,0 +1,110 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "creator",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "activity"
+        },
+        {
+            "relationshipName": "updator",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "activity"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "originaztion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateTime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "ageRanger",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remark",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "locationCity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "starCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "joinPersonCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "commentCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "image1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image4",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "activityType",
+            "fieldType": "ActivityType",
+            "fieldValues": "Product,Test,Activity"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updateTime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "delFlag",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170302093440",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "activity",
+    "pagination": "no"
+}

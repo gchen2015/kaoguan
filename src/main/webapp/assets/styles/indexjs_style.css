@@ -1,0 +1,322 @@
+@charset 'gb2312';
+
+html, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td
+{
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    list-style-type: none;
+}
+
+
+
+
+
+.block_home_slider
+{
+    position: relative;
+    behavior: url(js/PIE.htc); /*半透明兼容*/
+    height: 533px;
+    text-align: center;
+}
+    /*底部小图标*/
+    .block_home_slider .slide
+    {
+        position: relative;
+        background-color: #FFD01D;
+        width: 640px;
+        height: 533px;
+    }
+
+    .block_home_slider .flex-direction-nav a
+    {
+        width: 25px;
+        height: 25px;
+        margin-top: -27px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        background-repeat: no-repeat;
+        background-image: url(sprite_arrow_2.png);
+        text-indent: -9000px;
+    }
+
+        .block_home_slider .flex-direction-nav a.flex-prev
+        {
+            left: 6px;
+            background-position: left top;
+        }
+
+            .block_home_slider .flex-direction-nav a.flex-prev:hover
+            {
+                background-position: left bottom;
+            }
+
+        .block_home_slider .flex-direction-nav a.flex-next
+        {
+            right: 6px;
+            background-position: right top;
+        }
+
+            .block_home_slider .flex-direction-nav a.flex-next:hover
+            {
+                background-position: right bottom;
+            }
+
+    .block_home_slider .flex-control-paging
+    {
+        display: inline-block;
+        text-align: center;
+    }
+
+        .block_home_slider .flex-control-paging li
+        {
+            margin: 0px;
+            padding: 0px;
+            float: left;
+            overflow: hidden;
+            list-style-type: none;
+            background-color: #FFD01D;
+        }
+
+            .block_home_slider .flex-control-paging li a
+            {
+                width: 12px;
+                height: 12px;
+                display: block;
+                background-repeat: no-repeat;
+                background-image: url(../images/index/sprite_nav_3.png);
+                text-indent: -9000px;
+                cursor: pointer;
+            }
+
+                .block_home_slider .flex-control-paging li a.flex-active
+                {
+                    background-position: right top;
+                }
+
+.block_home_post_feature
+{
+    width: 300px;
+}
+
+    .block_home_post_feature p
+    {
+        padding-bottom: 0px;
+    }
+
+.flexslider
+{
+    margin: 0;
+    padding: 0;
+    width: 640px;
+    height: 533px;
+}
+
+    .flexslider .slides > li
+    {
+        display: none;
+        -webkit-backface-visibility: hidden;
+        list-style-type: none;
+    }
+    /* Hide the slides before the JS is loaded. Avoids image jumping */
+    .flexslider .slides img
+    {
+        display: block;
+    }
+
+.flex-pauseplay span
+{
+    text-transform: capitalize;
+}
+
+.slide_hd
+{
+    float: left;
+    width: 640px;
+    height: 95px;
+}
+
+.slide_hd_admin
+{
+    float: left;
+    width: 450px;
+    height: 95px;
+}
+
+.slide_hd_admin_pic
+{
+    float: left;
+    width: 90px;
+    height: 95px;
+}
+
+    .slide_hd_admin_pic img
+    {
+        border: none;
+        margin: 14px 0 0 15px;
+    }
+
+.slide_hd_admin_title
+{
+    float: left;
+    width: 360px;
+    height: 65px;
+    text-align: left;
+    line-height: 30px;
+    margin-top: 20px;
+    letter-spacing:2px;
+}
+
+.slide_hd_admin_title_p1
+{
+    color: #4f4f4f;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.slide_hd_admin_title_p2
+{
+    color: #fff;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.slide_hd_nav
+{
+    float: right;
+    width: 165px;
+    height: 52px;
+    margin: 2px;
+    background: #000 url(../images/index/pp.jpg) no-repeat 10% center;
+    color: #ffcf10;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 52px;
+    text-indent: 25px;
+}
+
+.slide_pic
+{
+    float: left;
+    width: 640px;
+    height: 195px;
+}
+
+    .slide_pic ul li
+    {
+        float: left;
+        width: 195px;
+        height: 195px;
+        margin: 0 9px;
+    }
+
+        .slide_pic ul li img
+        {
+            width: 195px;
+            height: 195px;
+            border: none;
+        }
+
+.slide_nav
+{
+    float: left;
+    width: 640px;
+    height: 180px;
+}
+
+.slide_nav_title
+{
+    float: left;
+    width: 640px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.5em;
+}
+
+    .slide_nav_title ul li
+    {
+        float: left;
+        font-weight: bold;
+    }
+
+.slide_nav_title_li1
+{
+    width: 285px;
+    height: 60px;
+    text-align: left;
+    text-indent: 20px;
+    color: #000;
+}
+
+.slide_nav_title_li2
+{
+    width: 115px;
+    height: 60px;
+    color: #fc0000;
+}
+
+.slide_nav_title_li3
+{
+    width: 200px;
+    height: 60px;
+    color: #000;
+    text-align: right;
+}
+
+.slide_nav_area
+{
+    float: left;
+    width: 580px;
+    margin: 0 21px;
+    color: #4f4f4f;
+    text-align: left;
+    font-size: 1.35em;
+    line-height: 30px;
+}
+
+.slide_btn
+{
+    float: left;
+    width: 640px;
+    height: 30px;
+    margin-top: 10px;
+    line-height: 30px;
+    color: #525252;
+    font-size: 1.3em;
+}
+
+    .slide_btn ul li
+    {
+        float: left;
+        margin-left:30px;
+    }
+
+        .slide_btn ul li img
+        {
+            float: left;
+            border: none;
+            width: 30px;
+            height: 30px;
+            margin-right:8px;
+        }
+
+        .slide_btn ul li a
+        {
+            color: #525252;
+        }
+
+            .slide_btn ul li a:hover
+            {
+                color: #525252;
+            }

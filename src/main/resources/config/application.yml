@@ -47,6 +47,10 @@ spring:
 security:
     basic:
         enabled: false
+bookstore:
+    upload:
+        path: /users/zliu//desktop//2017//kaoguan//src//main//webapp//assets//images//upload
+
 
 server:
     session:
