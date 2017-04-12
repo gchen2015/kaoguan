@@ -21,10 +21,13 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDate;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
 import java.time.ZoneId;
 import java.util.List;
 
+import static com.kaoguan.app.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -48,9 +51,6 @@ public class ActivityResourceIntTest {
 
     private static final String DEFAULT_ORIGINAZTION = "AAAAAAAAAA";
     private static final String UPDATED_ORIGINAZTION = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_DATE_TIME = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DATE_TIME = LocalDate.now(ZoneId.systemDefault());
 
     private static final String DEFAULT_AGE_RANGER = "AAAAAAAAAA";
     private static final String UPDATED_AGE_RANGER = "BBBBBBBBBB";
@@ -91,14 +91,17 @@ public class ActivityResourceIntTest {
     private static final ActivityType DEFAULT_ACTIVITY_TYPE = ActivityType.Product;
     private static final ActivityType UPDATED_ACTIVITY_TYPE = ActivityType.Test;
 
-    private static final LocalDate DEFAULT_CREATE_TIME = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATE_TIME = LocalDate.now(ZoneId.systemDefault());
-
-    private static final LocalDate DEFAULT_UPDATE_TIME = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATE_TIME = LocalDate.now(ZoneId.systemDefault());
-
     private static final Integer DEFAULT_DEL_FLAG = 1;
     private static final Integer UPDATED_DEL_FLAG = 2;
+
+    private static final ZonedDateTime DEFAULT_DATETIME = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_DATETIME = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_CREATE_TIME = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATE_TIME = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_UPDATE_TIME = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_UPDATE_TIME = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private ActivityRepository activityRepository;
@@ -140,7 +143,6 @@ public class ActivityResourceIntTest {
                 .name(DEFAULT_NAME)
                 .description(DEFAULT_DESCRIPTION)
                 .originaztion(DEFAULT_ORIGINAZTION)
-                .dateTime(DEFAULT_DATE_TIME)
                 .ageRanger(DEFAULT_AGE_RANGER)
                 .price(DEFAULT_PRICE)
                 .remark(DEFAULT_REMARK)
@@ -154,9 +156,10 @@ public class ActivityResourceIntTest {
                 .image3(DEFAULT_IMAGE_3)
                 .image4(DEFAULT_IMAGE_4)
                 .activityType(DEFAULT_ACTIVITY_TYPE)
+                .delFlag(DEFAULT_DEL_FLAG)
+                .datetime(DEFAULT_DATETIME)
                 .createTime(DEFAULT_CREATE_TIME)
-                .updateTime(DEFAULT_UPDATE_TIME)
-                .delFlag(DEFAULT_DEL_FLAG);
+                .updateTime(DEFAULT_UPDATE_TIME);
         return activity;
     }
 
@@ -184,7 +187,6 @@ public class ActivityResourceIntTest {
         assertThat(testActivity.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testActivity.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testActivity.getOriginaztion()).isEqualTo(DEFAULT_ORIGINAZTION);
-        assertThat(testActivity.getDateTime()).isEqualTo(DEFAULT_DATE_TIME);
         assertThat(testActivity.getAgeRanger()).isEqualTo(DEFAULT_AGE_RANGER);
         assertThat(testActivity.getPrice()).isEqualTo(DEFAULT_PRICE);
         assertThat(testActivity.getRemark()).isEqualTo(DEFAULT_REMARK);
@@ -198,9 +200,10 @@ public class ActivityResourceIntTest {
         assertThat(testActivity.getImage3()).isEqualTo(DEFAULT_IMAGE_3);
         assertThat(testActivity.getImage4()).isEqualTo(DEFAULT_IMAGE_4);
         assertThat(testActivity.getActivityType()).isEqualTo(DEFAULT_ACTIVITY_TYPE);
+        assertThat(testActivity.getDelFlag()).isEqualTo(DEFAULT_DEL_FLAG);
+        assertThat(testActivity.getDatetime()).isEqualTo(DEFAULT_DATETIME);
         assertThat(testActivity.getCreateTime()).isEqualTo(DEFAULT_CREATE_TIME);
         assertThat(testActivity.getUpdateTime()).isEqualTo(DEFAULT_UPDATE_TIME);
-        assertThat(testActivity.getDelFlag()).isEqualTo(DEFAULT_DEL_FLAG);
     }
 
     @Test
@@ -237,7 +240,6 @@ public class ActivityResourceIntTest {
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].originaztion").value(hasItem(DEFAULT_ORIGINAZTION.toString())))
-            .andExpect(jsonPath("$.[*].dateTime").value(hasItem(DEFAULT_DATE_TIME.toString())))
             .andExpect(jsonPath("$.[*].ageRanger").value(hasItem(DEFAULT_AGE_RANGER.toString())))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.toString())))
             .andExpect(jsonPath("$.[*].remark").value(hasItem(DEFAULT_REMARK.toString())))
@@ -251,9 +253,10 @@ public class ActivityResourceIntTest {
             .andExpect(jsonPath("$.[*].image3").value(hasItem(DEFAULT_IMAGE_3.toString())))
             .andExpect(jsonPath("$.[*].image4").value(hasItem(DEFAULT_IMAGE_4.toString())))
             .andExpect(jsonPath("$.[*].activityType").value(hasItem(DEFAULT_ACTIVITY_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].createTime").value(hasItem(DEFAULT_CREATE_TIME.toString())))
-            .andExpect(jsonPath("$.[*].updateTime").value(hasItem(DEFAULT_UPDATE_TIME.toString())))
-            .andExpect(jsonPath("$.[*].delFlag").value(hasItem(DEFAULT_DEL_FLAG)));
+            .andExpect(jsonPath("$.[*].delFlag").value(hasItem(DEFAULT_DEL_FLAG)))
+            .andExpect(jsonPath("$.[*].datetime").value(hasItem(sameInstant(DEFAULT_DATETIME))))
+            .andExpect(jsonPath("$.[*].createTime").value(hasItem(sameInstant(DEFAULT_CREATE_TIME))))
+            .andExpect(jsonPath("$.[*].updateTime").value(hasItem(sameInstant(DEFAULT_UPDATE_TIME))));
     }
 
     @Test
@@ -270,7 +273,6 @@ public class ActivityResourceIntTest {
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.originaztion").value(DEFAULT_ORIGINAZTION.toString()))
-            .andExpect(jsonPath("$.dateTime").value(DEFAULT_DATE_TIME.toString()))
             .andExpect(jsonPath("$.ageRanger").value(DEFAULT_AGE_RANGER.toString()))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.toString()))
             .andExpect(jsonPath("$.remark").value(DEFAULT_REMARK.toString()))
@@ -284,9 +286,10 @@ public class ActivityResourceIntTest {
             .andExpect(jsonPath("$.image3").value(DEFAULT_IMAGE_3.toString()))
             .andExpect(jsonPath("$.image4").value(DEFAULT_IMAGE_4.toString()))
             .andExpect(jsonPath("$.activityType").value(DEFAULT_ACTIVITY_TYPE.toString()))
-            .andExpect(jsonPath("$.createTime").value(DEFAULT_CREATE_TIME.toString()))
-            .andExpect(jsonPath("$.updateTime").value(DEFAULT_UPDATE_TIME.toString()))
-            .andExpect(jsonPath("$.delFlag").value(DEFAULT_DEL_FLAG));
+            .andExpect(jsonPath("$.delFlag").value(DEFAULT_DEL_FLAG))
+            .andExpect(jsonPath("$.datetime").value(sameInstant(DEFAULT_DATETIME)))
+            .andExpect(jsonPath("$.createTime").value(sameInstant(DEFAULT_CREATE_TIME)))
+            .andExpect(jsonPath("$.updateTime").value(sameInstant(DEFAULT_UPDATE_TIME)));
     }
 
     @Test
@@ -310,7 +313,6 @@ public class ActivityResourceIntTest {
                 .name(UPDATED_NAME)
                 .description(UPDATED_DESCRIPTION)
                 .originaztion(UPDATED_ORIGINAZTION)
-                .dateTime(UPDATED_DATE_TIME)
                 .ageRanger(UPDATED_AGE_RANGER)
                 .price(UPDATED_PRICE)
                 .remark(UPDATED_REMARK)
@@ -324,9 +326,10 @@ public class ActivityResourceIntTest {
                 .image3(UPDATED_IMAGE_3)
                 .image4(UPDATED_IMAGE_4)
                 .activityType(UPDATED_ACTIVITY_TYPE)
+                .delFlag(UPDATED_DEL_FLAG)
+                .datetime(UPDATED_DATETIME)
                 .createTime(UPDATED_CREATE_TIME)
-                .updateTime(UPDATED_UPDATE_TIME)
-                .delFlag(UPDATED_DEL_FLAG);
+                .updateTime(UPDATED_UPDATE_TIME);
 
         restActivityMockMvc.perform(put("/api/activities")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -340,7 +343,6 @@ public class ActivityResourceIntTest {
         assertThat(testActivity.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testActivity.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testActivity.getOriginaztion()).isEqualTo(UPDATED_ORIGINAZTION);
-        assertThat(testActivity.getDateTime()).isEqualTo(UPDATED_DATE_TIME);
         assertThat(testActivity.getAgeRanger()).isEqualTo(UPDATED_AGE_RANGER);
         assertThat(testActivity.getPrice()).isEqualTo(UPDATED_PRICE);
         assertThat(testActivity.getRemark()).isEqualTo(UPDATED_REMARK);
@@ -354,9 +356,10 @@ public class ActivityResourceIntTest {
         assertThat(testActivity.getImage3()).isEqualTo(UPDATED_IMAGE_3);
         assertThat(testActivity.getImage4()).isEqualTo(UPDATED_IMAGE_4);
         assertThat(testActivity.getActivityType()).isEqualTo(UPDATED_ACTIVITY_TYPE);
+        assertThat(testActivity.getDelFlag()).isEqualTo(UPDATED_DEL_FLAG);
+        assertThat(testActivity.getDatetime()).isEqualTo(UPDATED_DATETIME);
         assertThat(testActivity.getCreateTime()).isEqualTo(UPDATED_CREATE_TIME);
         assertThat(testActivity.getUpdateTime()).isEqualTo(UPDATED_UPDATE_TIME);
-        assertThat(testActivity.getDelFlag()).isEqualTo(UPDATED_DEL_FLAG);
     }
 
     @Test

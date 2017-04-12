@@ -1,14 +1,13 @@
 package com.kaoguan.app.domain;
 
+import com.kaoguan.app.domain.enumeration.ActivityType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.Objects;
-
-import com.kaoguan.app.domain.enumeration.ActivityType;
 
 /**
  * A Activity.
@@ -32,9 +31,6 @@ public class Activity implements Serializable {
 
     @Column(name = "originaztion")
     private String originaztion;
-
-    @Column(name = "date_time")
-    private LocalDate dateTime;
 
     @Column(name = "age_ranger")
     private String ageRanger;
@@ -76,14 +72,17 @@ public class Activity implements Serializable {
     @Column(name = "activity_type")
     private ActivityType activityType;
 
-    @Column(name = "create_time")
-    private LocalDate createTime;
-
-    @Column(name = "update_time")
-    private LocalDate updateTime;
-
     @Column(name = "del_flag")
     private Integer delFlag;
+
+    @Column(name = "date_time")
+    private ZonedDateTime datetime;
+
+    @Column(name = "create_time")
+    private ZonedDateTime createTime;
+
+    @Column(name = "update_time")
+    private ZonedDateTime updateTime;
 
     @ManyToOne
     private User creator;
@@ -136,19 +135,6 @@ public class Activity implements Serializable {
 
     public void setOriginaztion(String originaztion) {
         this.originaztion = originaztion;
-    }
-
-    public LocalDate getDateTime() {
-        return dateTime;
-    }
-
-    public Activity dateTime(LocalDate dateTime) {
-        this.dateTime = dateTime;
-        return this;
-    }
-
-    public void setDateTime(LocalDate dateTime) {
-        this.dateTime = dateTime;
     }
 
     public String getAgeRanger() {
@@ -320,32 +306,6 @@ public class Activity implements Serializable {
         this.activityType = activityType;
     }
 
-    public LocalDate getCreateTime() {
-        return createTime;
-    }
-
-    public Activity createTime(LocalDate createTime) {
-        this.createTime = createTime;
-        return this;
-    }
-
-    public void setCreateTime(LocalDate createTime) {
-        this.createTime = createTime;
-    }
-
-    public LocalDate getUpdateTime() {
-        return updateTime;
-    }
-
-    public Activity updateTime(LocalDate updateTime) {
-        this.updateTime = updateTime;
-        return this;
-    }
-
-    public void setUpdateTime(LocalDate updateTime) {
-        this.updateTime = updateTime;
-    }
-
     public Integer getDelFlag() {
         return delFlag;
     }
@@ -357,6 +317,45 @@ public class Activity implements Serializable {
 
     public void setDelFlag(Integer delFlag) {
         this.delFlag = delFlag;
+    }
+
+    public ZonedDateTime getDatetime() {
+        return datetime;
+    }
+
+    public Activity datetime(ZonedDateTime datetime) {
+        this.datetime = datetime;
+        return this;
+    }
+
+    public void setDatetime(ZonedDateTime datetime) {
+        this.datetime = datetime;
+    }
+
+    public ZonedDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public Activity createTime(ZonedDateTime createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
+    public void setCreateTime(ZonedDateTime createTime) {
+        this.createTime = createTime;
+    }
+
+    public ZonedDateTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public Activity updateTime(ZonedDateTime updateTime) {
+        this.updateTime = updateTime;
+        return this;
+    }
+
+    public void setUpdateTime(ZonedDateTime updateTime) {
+        this.updateTime = updateTime;
     }
 
     public User getCreator() {
@@ -412,7 +411,6 @@ public class Activity implements Serializable {
             ", name='" + name + "'" +
             ", description='" + description + "'" +
             ", originaztion='" + originaztion + "'" +
-            ", dateTime='" + dateTime + "'" +
             ", ageRanger='" + ageRanger + "'" +
             ", price='" + price + "'" +
             ", remark='" + remark + "'" +
@@ -426,9 +424,10 @@ public class Activity implements Serializable {
             ", image3='" + image3 + "'" +
             ", image4='" + image4 + "'" +
             ", activityType='" + activityType + "'" +
+            ", delFlag='" + delFlag + "'" +
+            ", datetime='" + datetime + "'" +
             ", createTime='" + createTime + "'" +
             ", updateTime='" + updateTime + "'" +
-            ", delFlag='" + delFlag + "'" +
             '}';
     }
 }

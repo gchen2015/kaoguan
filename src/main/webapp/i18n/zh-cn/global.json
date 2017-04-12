@@ -12,6 +12,7 @@
                 "joinActivity": "Join Activity",
                 "preferActivity": "Prefer Activity",
                 "starActivity": "Star Activity",
+                "upload": "Upload",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

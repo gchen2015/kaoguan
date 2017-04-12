@@ -22,7 +22,6 @@
                     <th><span data-translate="kaoguanApp.activity.name">Name</span></th>
                     <th><span data-translate="kaoguanApp.activity.description">Description</span></th>
                     <th><span data-translate="kaoguanApp.activity.originaztion">Originaztion</span></th>
-                    <th><span data-translate="kaoguanApp.activity.dateTime">Date Time</span></th>
                     <th><span data-translate="kaoguanApp.activity.ageRanger">Age Ranger</span></th>
                     <th><span data-translate="kaoguanApp.activity.price">Price</span></th>
                     <th><span data-translate="kaoguanApp.activity.remark">Remark</span></th>
@@ -31,10 +30,15 @@
                     <th><span data-translate="kaoguanApp.activity.starCount">Star Count</span></th>
                     <th><span data-translate="kaoguanApp.activity.joinPersonCount">Join Person Count</span></th>
                     <th><span data-translate="kaoguanApp.activity.commentCount">Comment Count</span></th>
+                    <th><span data-translate="kaoguanApp.activity.image1">Image 1</span></th>
+                    <th><span data-translate="kaoguanApp.activity.image2">Image 2</span></th>
+                    <th><span data-translate="kaoguanApp.activity.image3">Image 3</span></th>
+                    <th><span data-translate="kaoguanApp.activity.image4">Image 4</span></th>
                     <th><span data-translate="kaoguanApp.activity.activityType">Activity Type</span></th>
+                    <th><span data-translate="kaoguanApp.activity.delFlag">Del Flag</span></th>
+                    <th><span data-translate="kaoguanApp.activity.datetime">Datetime</span></th>
                     <th><span data-translate="kaoguanApp.activity.createTime">Create Time</span></th>
                     <th><span data-translate="kaoguanApp.activity.updateTime">Update Time</span></th>
-                    <th><span data-translate="kaoguanApp.activity.delFlag">Del Flag</span></th>
                     <th><span data-translate="kaoguanApp.activity.creator">Creator</span></th>
                     <th><span data-translate="kaoguanApp.activity.updator">Updator</span></th>
                     <th></th>
@@ -46,7 +50,6 @@
                     <td>{{activity.name}}</td>
                     <td>{{activity.description}}</td>
                     <td>{{activity.originaztion}}</td>
-                        <td>{{activity.dateTime | date:'mediumDate'}}</td>
                     <td>{{activity.ageRanger}}</td>
                     <td>{{activity.price}}</td>
                     <td>{{activity.remark}}</td>
@@ -60,9 +63,10 @@
                     <td>{{activity.image3}}</td>
                     <td>{{activity.image4}}</td>
                     <td data-translate="{{'kaoguanApp.ActivityType.' + activity.activityType}}">{{activity.activityType}}</td>
-                        <td>{{activity.createTime | date:'mediumDate'}}</td>
-                        <td>{{activity.updateTime | date:'mediumDate'}}</td>
                     <td>{{activity.delFlag}}</td>
+                    <td>{{activity.datetime | date:'medium'}}</td>
+                    <td>{{activity.createTime | date:'medium'}}</td>
+                    <td>{{activity.updateTime | date:'medium'}}</td>
                     <td>
                         {{activity.creator.login}}
                     </td>

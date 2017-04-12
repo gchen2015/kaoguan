@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta content="target-densitydpi=device-dpi,width=640px,user-scalable=no" name="viewport">
+    <title>产品详细</title>
+    <link href="/assets/styles/css.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="wap_box">
+        <div class="head2">
+            <ul>
+                <li class="hd2_back">
+                    <a href="javascript:;">
+                        <img src="/assets/images/back.png" /></a></li>
+                <li class="hd2_select">
+                    <!--<select id="areas" class="text" style="">
+                        <option>上海</option>
+                        <option>黄浦区</option>
+                        <option>全部地区</option>
+                    </select>-->
+                </li>
+                <li class="hd2_title">详细</li>
+                <li style="width: 60px;"></li>
+                <li class="hd2_select2 ">
+                    <!--<select id="ages" class="text" style="">
+                        <option>0-1岁</option>
+                        <option>1-3岁</option>
+                        <option>3-6岁</option>
+                    </select>-->
+            </ul>
+        </div>
+        <div class="productxx_bd">
+            <div class="productxx_bd_cover">
+                <img src="/assets/images/index/p2.jpg" />
+            </div>
+            <div class="productxx_bd_t1">
+                已申请免费领取用户:<span>12</span>
+            </div>
+            <div class="productxx_bd_area">
+                <div class="productxx_bd_area_title">
+                    <div class="productxx_bd_area_title_visited" id="t1" onclick="qh(1,2)">产品详细介绍</div>
+                    <div class="productxx_bd_area_title_link" id="t2" onclick="qh(2,2)">评论和询问</div>
+                </div>
+                <div class="productxx_bd_area_xx" id="area1" style="display: ;">
+                    <div class="productxx_bd_area_xx_a1">
+                        <div class="productxx_bd_area_xx_a1_admin">
+                            <div class="productxx_bd_area_xx_a1_admin_pic">
+                                <img src="/assets/images/index/p3.jpg" />
+                            </div>
+                            <div class="productxx_bd_area_xx_a1_admin_title">
+                                <p class="productxx_bd_area_xx_a1_admin_title_p1">亲子互动</p>
+                                <p class="productxx_bd_area_xx_a1_admin_title_p2">刚刚</p>
+                            </div>
+                        </div>
+                        <div class="productxx_bd_area_xx_a1_bd">
+                            <div class="productxx_bd_area_xx_a1_bd_title">
+                                <ul>
+                                    <li class="productxx_bd_area_xx_a1_bd_title_li1">{{book.title}}</li>
+                                    <li class="productxx_bd_area_xx_a1_bd_title_li2">免费领取中</li>
+                                </ul>
+                            </div>
+                            <div class="productxx_bd_area_xx_a1_bd_nav">
+                                <ul>
+                                    <li class="productxx_bd_area_xx_a1_bd_nav_li1">主办机构：番茄田教育</li>
+                                    <li class="productxx_bd_area_xx_a1_bd_nav_li2">适合年龄：3－6岁</li>
+                                    <li class="productxx_bd_area_xx_a1_bd_nav_li3">活动时间：2015.12.20 - 2015.12.22</li>
+                                    <li class="productxx_bd_area_xx_a1_bd_nav_li3">活动地址：上海 东园路27号台湾花园大厦  </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productxx_bd_area_xx_a2">
+                        <div class="productxx_bd_area_xx_a2_nav">
+                            <p>{{book.description}}</p>
+                            <div class="clearit"></div>
+                        </div>
+                        <span> <img ng-if="book.photo != null" ng-src="/assets/images/upload/{{book.photo}}" style="height:100px;width:100px" alt="photo"></span>
+                        <div class="clearit"></div>
+                    </div>
+                    <div class="clearit"></div>
+                </div>
+                <div class="productxx_bd_area_pl" id="area2" style="display: none;">
+                    <div class="productxx_bd_area_pl_list">
+                        <div class="productxx_bd_area_pl_list_pic"></div>
+                        <div class="productxx_bd_area_pl_list_title">
+                            <ul>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_name">可爱豌豆</div>
+                                    <div class="productxx_bd_area_pl_list_title_time">1分钟前</div>
+                                </li>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_nav">
+                                        <p>回复@可爱豆丁：私聊</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="productxx_bd_area_pl_list">
+                        <div class="productxx_bd_area_pl_list_pic"></div>
+                        <div class="productxx_bd_area_pl_list_title">
+                            <ul>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_name">可爱豌豆</div>
+                                    <div class="productxx_bd_area_pl_list_title_time">1分钟前</div>
+                                </li>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_nav">
+                                        <p>回复@可爱豆丁：私聊</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="productxx_bd_area_pl_list">
+                        <div class="productxx_bd_area_pl_list_pic"></div>
+                        <div class="productxx_bd_area_pl_list_title">
+                            <ul>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_name">可爱豌豆</div>
+                                    <div class="productxx_bd_area_pl_list_title_time">1分钟前</div>
+                                </li>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_nav">
+                                        <p>回复@可爱豆丁：私聊</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="productxx_bd_area_pl_list">
+                        <div class="productxx_bd_area_pl_list_pic"></div>
+                        <div class="productxx_bd_area_pl_list_title">
+                            <ul>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_name">可爱豌豆</div>
+                                    <div class="productxx_bd_area_pl_list_title_time">1分钟前</div>
+                                </li>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_nav">
+                                        <p>回复@可爱豆丁：私聊</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="productxx_bd_area_pl_list">
+                        <div class="productxx_bd_area_pl_list_pic"></div>
+                        <div class="productxx_bd_area_pl_list_title">
+                            <ul>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_name">可爱豌豆</div>
+                                    <div class="productxx_bd_area_pl_list_title_time">1分钟前</div>
+                                </li>
+                                <li>
+                                    <div class="productxx_bd_area_pl_list_title_nav">
+                                        <p>回复@可爱豆丁：私聊</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearit"></div>
+                </div>
+                <div class="clearit"></div>
+            </div>
+            <div class="clearit"></div>
+        </div>
+        <div class="foot_dh">
+            <div class="foot_dh_area">
+                <div class="foot_dh_area_b1">
+                    <ul>
+                        <li style="width: 80px; text-align: right;">
+                            <img src="/assets/images/index/sc1.png" onclick="this.src='/assets/images/index/sc2.png'" /></li>
+                        <li style="text-align: left; width: 40px; color: #959595;">&nbsp;99</li>
+                    </ul>
+                </div>
+                <div class="foot_dh_area_b1">
+                    <ul>
+                        <li style="width: 80px; text-align: right;">
+                            <img src="/assets/images/eventxx/share.png" /></li>
+                    </ul>
+                </div>
+                <div class="foot_dh_area_b1">
+                    <ul>
+                        <li style="width: 80px; text-align: right;">
+                            <img src="/assets/images/index/yan2.png" /></li>
+                        <li style="text-align: left; width: 40px; color: #959595;">&nbsp;2</li>
+                    </ul>
+                </div>
+                <div class="foot_dh_area_b2">
+                    <a href="javascript:;">
+                        我要申领</a>
+                </div>
+            </div>
+        </div>
+        <div class="clearit"></div>
+    </div>
+    <script type="text/javascript">
+        function qh(n, a) {
+            for (var i = 1; i <= a; i++) {
+                if (n == i) {
+                    document.getElementById("t" + i).className = "productxx_bd_area_title_visited";
+                    document.getElementById("area" + i).style.display = "";
+                }
+                else {
+                    document.getElementById("t" + i).className = "productxx_bd_area_title_link";
+                    document.getElementById("area" + i).style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -18,7 +18,6 @@
             "name": "Name",
             "description": "Description",
             "originaztion": "Originaztion",
-            "dateTime": "Date Time",
             "ageRanger": "Age Ranger",
             "price": "Price",
             "remark": "Remark",
@@ -32,9 +31,10 @@
             "image3": "Image 3",
             "image4": "Image 4",
             "activityType": "Activity Type",
+            "delFlag": "Del Flag",
+            "datetime": "Datetime",
             "createTime": "Create Time",
             "updateTime": "Update Time",
-            "delFlag": "Del Flag",
             "creator": "Creator",
             "updator": "Updator"
         }

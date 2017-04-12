@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta content="target-densitydpi=device-dpi,width=640px,user-scalable=no" name="viewport">
+    <title>考观在线评分</title>
+    <link href="/assets/styles/css.css" rel="stylesheet" />
+    <link href="/assets/styles/indexjs_style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wap_box">
+        <div class="person_hd">
+            <div class="person_hd_back" onclick=""></div>
+        </div>
+        <div class="person_tx">
+            <div class="person_tx_pic">
+                <div class="person_tx_pic_kk">
+                    <img src="/assets/images/person/tx.jpg" />
+                </div>
+            </div>
+            <div ng-switch="vm.isAuthenticated()" class="person_tx_name">{{vm.account.login}}</div>
+
+            <div class="person_tx_score">积分：<span>342</span></div>
+            <div class="person_tx_btn">
+                <ul>
+                    <li>
+                        <div class="person_tx_btn_l1">
+                            <a href="javascript:;">积分说明</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">地址管理</a></li>
+                    <li>
+                        <a href="javascript:;">个人设置</a></li>
+                    <li>
+                        <div class="person_tx_btn_l2">
+                            <a href="javascript:;">我的消息</a> <span>(21)</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="person_bd">
+            <div class="person_bd_list">
+                <div class="person_bd_list_up" style="background: url(/assets/images/person/p3.png) no-repeat 8% center;" onclick="">我发起的活动（2）</div>
+                <div class="person_bd_list_down" onclick="">我参与的活动（8）</div>
+                <div class="clearit"></div>
+            </div>
+            <div class="person_bd_list">
+                <div class="person_bd_list_up" style="background: url(/assets/images/person/p4.png) no-repeat 8% center;" onclick="">我发起的产品（0）</div>
+                <div class="person_bd_list_down" onclick="">我参与的测评（16）</div>
+                <div class="clearit"></div>
+            </div>
+            <div class="person_bd_list">
+                <div class="person_bd_list_up" style="background: url(/assets/images/person/p5.png) no-repeat 8% center;" onclick="">我收到的评论（24）</div>
+                <div class="person_bd_list_down" onclick="">我发出的评论（13）</div>
+                <div class="clearit"></div>
+            </div>
+            <div class="person_bd_list">
+                <div class="person_bd_list_up" style="background: url(/assets/images/person/p6.png) no-repeat 8% center; border: none;" onclick="">我的收藏（80）</div>
+                <div class="clearit"></div>
+            </div>
+            <div class="clearit"></div>
+        </div>
+        <div class="person_btn">
+            <div class="person_btn_b1"><a ui-sref="activity.create" >发起同城活动</a></div>
+            <div class="person_btn_b2">发起产品测评</div>
+            <div class="person_btn_b3"><a href="javascript:;">退出帐号</a></div>
+        </div>
+        <div class="clearit"></div>
+    </div>
+</body>
+</html>

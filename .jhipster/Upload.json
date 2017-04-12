@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "originalName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uploadedAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "md5sum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uploadComplete",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "totalChunks",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "totalSize",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "completedAt",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20170410053452",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "upload",
+    "pagination": "no"
+}

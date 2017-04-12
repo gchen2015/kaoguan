@@ -32,10 +32,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "dateTime",
-            "fieldType": "LocalDate"
-        },
-        {
             "fieldName": "ageRanger",
             "fieldType": "String"
         },
@@ -90,16 +86,20 @@
             "fieldValues": "Product,Test,Activity"
         },
         {
+            "fieldName": "delFlag",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "datetime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
             "fieldName": "createTime",
-            "fieldType": "LocalDate"
+            "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "updateTime",
-            "fieldType": "LocalDate"
-        },
-        {
-            "fieldName": "delFlag",
-            "fieldType": "Integer"
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170302093440",

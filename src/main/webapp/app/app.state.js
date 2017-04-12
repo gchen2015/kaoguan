@@ -1,9 +1,11 @@
 (function() {
-    'use strict';
+    //'use strict';
 
     angular
         .module('kaoguanApp')
-        .config(stateConfig);
+        .config(stateConfig)
+
+        ;
 
     stateConfig.$inject = ['$stateProvider'];
 
@@ -29,4 +31,9 @@
             }
         });
     }
+
+
+
+
+
 })();

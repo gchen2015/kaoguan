@@ -32,20 +32,13 @@
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="kaoguanApp.activity.dateTime" for="field_dateTime">Date Time</label>
-                <div class="input-group">
-                    <input id="field_dateTime" type="text" class="form-control" name="dateTime" uib-datepicker-popup="{{dateformat}}" ng-model="vm.activity.dateTime" is-open="vm.datePickerOpenStatus.dateTime"
-                    />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="kaoguanApp.activity.ageRanger" for="field_ageRanger">Age Ranger</label>
-            <input type="text" class="form-control" name="ageRanger" id="field_ageRanger"
-                    ng-model="vm.activity.ageRanger"
-                    />
+
+            <select name="ageRanger" ng-model="vm.activity.ageRanger" id="field_ageRanger">
+                <option value="0-1">0-1岁</option>
+                <option value="1-3">1-3岁</option>
+                <option value="3-6">3-6岁</option>
+            </select>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="kaoguanApp.activity.price" for="field_price">Price</label>
@@ -89,64 +82,35 @@
                     ng-model="vm.activity.commentCount"
                     />
         </div>
-        <!--
-        <div class="form-group">
-            <label class="control-label" data-translate="kaoguanApp.activity.image1" for="field_image1">Image 1</label>
-            <input type="text" class="form-control" name="image1" id="field_image1"
-                    ng-model="vm.activity.image1"
-                    />
-        </div>
-       -->
-
-        <div class="form-group">
+        <div class="form-group" flow-init="{singleFile:false}" flow-files-submitted="$flow.upload()" flow-file-success="fileSuccess($flow, $file, $message,'image1')">
+            <label class="control-label" data-translate="kaoguanApp.activity.image1" >Image 1</label>
 
             <img ng-if="vm.activity.image1 != null" ng-src="/assets/images/upload/{{vm.activity.image1}}" style="height:80px;width:80px" alt="image1">
-            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
-                 ngf-keep-distinct="true" ngf-select="onFileSelect(image1s, 'image1')" ng-model="image1s" ngf-multiple="true">
-                <button >选择图片</button>
-            </div>
-           <!--
-            <img ng-repeat="file in image1s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
-           -->
-            <br>
+
+            <span class="btn btn-primary" ng-show="$flow.files.length<1" flow-btn>Select image</span>
+
+
 
         </div>
 
-        <div class="form-group">
-
+        <div class="form-group" flow-init="{singleFile:false}" flow-files-submitted="$flow.upload()" flow-file-success="fileSuccess($flow, $file, $message,'image2')">
+            <label class="control-label" data-translate="kaoguanApp.activity.image2" >Image 2</label>
             <img ng-if="vm.activity.image2 != null" ng-src="/assets/images/upload/{{vm.activity.image2}}" style="height:80px;width:80px" alt="image2">
-            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
-                 ngf-keep-distinct="true" ngf-select="onFileSelect(image2s, 'image2')" ng-model="image2s" ngf-multiple="true">
-                <button >选择图片</button>
-            </div>
-            <!--
-            <img ng-repeat="file in image2s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
-            -->
-            <br>
-        </div>
 
+            <span class="btn btn-primary" ng-show="$flow.files.length<1" flow-btn>Select image</span>
 
-        <div class="form-group">
-            <img ng-if="vm.activity.image3 != null" ng-src="/assets/images/upload/{{vm.activity.image3}}" style="height:80px;width:80px" alt="image3">
-            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
-                 ngf-keep-distinct="true" ngf-select="onFileSelect(image3s, 'image3')" ng-model="image3s" ngf-multiple="true">
-                <button >选择图片</button>
-            </div>
-           <!--
-            <img ng-repeat="file in image3s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
-           -->
-            <br>
         </div>
-        <div class="form-group">
+        <div class="form-group" flow-init="{singleFile:false}" flow-files-submitted="$flow.upload()" flow-file-success="fileSuccess($flow, $file, $message,'image3')">
+            <label class="control-label" data-translate="kaoguanApp.activity.image3" >Image 3</label>
+            <img ng-if="vm.activity.image2 != null" ng-src="/assets/images/upload/{{vm.activity.image3}}" style="height:80px;width:80px" alt="image3">
+
+            <span class="btn btn-primary" ng-show="$flow.files.length<1" flow-btn>Select image</span>
+        </div>
+        <div class="form-group" flow-init="{singleFile:false}" flow-files-submitted="$flow.upload()" flow-file-success="fileSuccess($flow, $file, $message,'image4')">
+            <label class="control-label" data-translate="kaoguanApp.activity.image4" >Image 4</label>
             <img ng-if="vm.activity.image4 != null" ng-src="/assets/images/upload/{{vm.activity.image4}}" style="height:80px;width:80px" alt="image4">
-            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
-                 ngf-keep-distinct="true" ngf-select="onFileSelect(image4s, 'image4')" ng-model="image4s" ngf-multiple="true">
-                <button >选择图片</button>
-            </div>
-          <!--
-            <img ng-repeat="file in image4s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
-          -->
-            <br>
+
+            <span class="btn btn-primary" ng-show="$flow.files.length<1" flow-btn>Select image</span>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="kaoguanApp.activity.activityType" for="field_activityType">Activity Type</label>
@@ -157,9 +121,27 @@
             </select>
         </div>
         <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.delFlag" for="field_delFlag">Del Flag</label>
+            <div class="input-group">
+            <input type="number" class="form-control" name="delFlag" id="field_delFlag"
+                    ng-model="vm.activity.delFlag"
+                    />
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.activity.datetime" for="field_datetime">Datetime</label>
+                <div class="input-group">
+                    <input id="field_datetime" type="text" class="form-control" name="datetime" datetime-picker="{{dateformat}}" ng-model="vm.activity.datetime" is-open="vm.datePickerOpenStatus.datetime"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('datetime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
             <label class="control-label" data-translate="kaoguanApp.activity.createTime" for="field_createTime">Create Time</label>
                 <div class="input-group">
-                    <input id="field_createTime" type="text" class="form-control" name="createTime" uib-datepicker-popup="{{dateformat}}" ng-model="vm.activity.createTime" is-open="vm.datePickerOpenStatus.createTime"
+                    <input id="field_createTime" type="text" class="form-control" name="createTime" datetime-picker="{{dateformat}}" ng-model="vm.activity.createTime" is-open="vm.datePickerOpenStatus.createTime"
                     />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createTime')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -169,18 +151,12 @@
         <div class="form-group">
             <label class="control-label" data-translate="kaoguanApp.activity.updateTime" for="field_updateTime">Update Time</label>
                 <div class="input-group">
-                    <input id="field_updateTime" type="text" class="form-control" name="updateTime" uib-datepicker-popup="{{dateformat}}" ng-model="vm.activity.updateTime" is-open="vm.datePickerOpenStatus.updateTime"
+                    <input id="field_updateTime" type="text" class="form-control" name="updateTime" datetime-picker="{{dateformat}}" ng-model="vm.activity.updateTime" is-open="vm.datePickerOpenStatus.updateTime"
                     />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updateTime')"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="kaoguanApp.activity.delFlag" for="field_delFlag">Del Flag</label>
-            <input type="number" class="form-control" name="delFlag" id="field_delFlag"
-                    ng-model="vm.activity.delFlag"
-                    />
         </div>
 
         <div class="form-group">

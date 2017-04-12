@@ -16,10 +16,6 @@
         <dd>
             <span>{{vm.activity.originaztion}}</span>
         </dd>
-        <dt><span data-translate="kaoguanApp.activity.dateTime">Date Time</span></dt>
-        <dd>
-            <span>{{vm.activity.dateTime | date:'mediumDate'}}</span>
-        </dd>
         <dt><span data-translate="kaoguanApp.activity.ageRanger">Age Ranger</span></dt>
         <dd>
             <span>{{vm.activity.ageRanger}}</span>
@@ -54,38 +50,39 @@
         </dd>
         <dt><span data-translate="kaoguanApp.activity.image1">Image 1</span></dt>
         <dd>
-            <span class="form-control-static"><img ng-if="vm.activity.image1 != null" ng-src="/assets/images/upload/{{vm.activity.image1}}" style="height:100px;width:100px" alt="slide1"></span>
+            <span>{{vm.activity.image1}}</span>
         </dd>
         <dt><span data-translate="kaoguanApp.activity.image2">Image 2</span></dt>
         <dd>
-            <span class="form-control-static"><img ng-if="vm.activity.image1 != null" ng-src="/assets/images/upload/{{vm.activity.image2}}" style="height:100px;width:100px" alt="slide1"></span>
-
+            <span>{{vm.activity.image2}}</span>
         </dd>
         <dt><span data-translate="kaoguanApp.activity.image3">Image 3</span></dt>
         <dd>
-            <span class="form-control-static"><img ng-if="vm.activity.image1 != null" ng-src="/assets/images/upload/{{vm.activity.image3}}" style="height:100px;width:100px" alt="slide1"></span>
-
+            <span>{{vm.activity.image3}}</span>
         </dd>
         <dt><span data-translate="kaoguanApp.activity.image4">Image 4</span></dt>
         <dd>
-            <span class="form-control-static"><img ng-if="vm.activity.image1 != null" ng-src="/assets/images/upload/{{vm.activity.image4}}" style="height:100px;width:100px" alt="slide1"></span>
-
+            <span>{{vm.activity.image4}}</span>
         </dd>
         <dt><span data-translate="kaoguanApp.activity.activityType">Activity Type</span></dt>
         <dd>
             <span data-translate="{{'kaoguanApp.ActivityType.' + vm.activity.activityType}}">{{vm.activity.activityType}}</span>
         </dd>
-        <dt><span data-translate="kaoguanApp.activity.createTime">Create Time</span></dt>
-        <dd>
-            <span>{{vm.activity.createTime | date:'mediumDate'}}</span>
-        </dd>
-        <dt><span data-translate="kaoguanApp.activity.updateTime">Update Time</span></dt>
-        <dd>
-            <span>{{vm.activity.updateTime | date:'mediumDate'}}</span>
-        </dd>
         <dt><span data-translate="kaoguanApp.activity.delFlag">Del Flag</span></dt>
         <dd>
             <span>{{vm.activity.delFlag}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.activity.datetime">Datetime</span></dt>
+        <dd>
+            <span>{{vm.activity.datetime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.activity.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.activity.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="kaoguanApp.activity.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{vm.activity.updateTime | date:'medium'}}</span>
         </dd>
         <dt><span data-translate="kaoguanApp.activity.creator">Creator</span></dt>
         <dd>

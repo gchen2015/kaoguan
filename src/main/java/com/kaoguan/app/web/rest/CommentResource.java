@@ -2,12 +2,13 @@ package com.kaoguan.app.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kaoguan.app.domain.Comment;
-
 import com.kaoguan.app.repository.CommentRepository;
 import com.kaoguan.app.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,7 @@ public class CommentResource {
     private final Logger log = LoggerFactory.getLogger(CommentResource.class);
 
     private static final String ENTITY_NAME = "comment";
-        
+
     private final CommentRepository commentRepository;
 
     public CommentResource(CommentRepository commentRepository) {
@@ -114,6 +115,18 @@ public class CommentResource {
         log.debug("REST request to delete Comment : {}", id);
         commentRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+
+    /**
+     * GET  /comments/news -> get all the comments.
+     */
+
+    @RequestMapping(value = "/comments/news", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Comment>> getAllNewsComments() throws URISyntaxException {
+        List<Comment> comments = commentRepository.findAllNewsComments();
+        return new ResponseEntity<>(comments, HttpStatus.OK);
     }
 
 }

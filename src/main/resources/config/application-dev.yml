@@ -17,6 +17,12 @@ spring:
     profiles:
         active: dev
         include: swagger
+    data:
+        mongodb:
+            host: localhost
+            port: 27017
+            database: upload_example
+            uri: mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
     devtools:
         restart:
             enabled: true

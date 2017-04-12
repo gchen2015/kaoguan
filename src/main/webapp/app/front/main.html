@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta content="target-densitydpi=device-dpi,width=640px,user-scalable=no" name="viewport">
+    <title>考观在线评分</title>
+    <link href="/assets/styles/css.css" rel="stylesheet" />
+    <link href="/assets/styles/indexjs_style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="wap_box">
+        <header>
+            <div class="hd_a1">
+                <div class="hd_a1_pic">
+
+                    <a ui-sref="activity.person" class="">
+                        <img src="/assets/images/index/admin.jpg" /></a>
+                </div>
+                <div class="hd_a1_select">
+                    <select name="drop2" class="ui-select">
+                        <option value="">全部年龄</option>
+                        <option value="0~1岁">0~1岁</option>
+                        <option value="1~3岁">1~3岁</option>
+                    </select>
+                </div>
+            </div>
+            <div class="hd_a2">
+                <div class="hd_a2_select">
+                    <select id="orderTimeDataSel" class="text" style="">
+                        <option>全部地区</option>
+                        <option>黄浦区</option>
+                        <option>全部地区</option>
+                    </select>
+                </div>
+                <div class="hd_a2_pic">
+                    <a href="topten.html" target="_blank">
+                        <img src="/assets/images/index/top.jpg" /></a>
+                </div>
+            </div>
+        </header>
+        <div class="in_body">
+
+
+            <div id="myCarousel" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="http://www.runoob.com/wp-content/uploads/2014/07/slide1.png" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="http://www.runoob.com/wp-content/uploads/2014/07/slide2.png" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="http://www.runoob.com/wp-content/uploads/2014/07/slide3.png" alt="Third slide">
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <!--Carousel-->
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+
+            <script>
+	$('#myCarousel').carousel({
+		interval : 3000
+	})
+
+
+</script>
+
+
+            <div  ng-repeat="activity in newActivities">
+
+                <div class="in_bd_list" onclick="">
+                    <div class="in_bd_list_hd">
+                        <div class="in_bd_list_hd_admin">
+                            <div class="in_bd_list_hd_admin_pic">
+                                <img src="/assets/images/index/p3.jpg" />
+                            </div>
+                            <div class="in_bd_list_hd_admin_title">
+                                <p class="in_bd_list_hd_admin_title_p1">亲子互动</p>
+                                <p class="in_bd_list_hd_admin_title_p2">刚刚</p>
+                            </div>
+                        </div>
+                        <div class="in_bd_list_hd_score">
+                            <span>94</span>分
+                        </div>
+                    </div>
+                    <div class="in_bd_list_pic">
+                        <ul>
+                            <li>
+                                <img src="/assets/images/index/p2.jpg" /></li>
+                            <li>
+                                <img src="/assets/images/index/p2.jpg" /></li>
+                            <li>
+                                <img src="/assets/images/index/p2.jpg" /></li>
+                        </ul>
+                    </div>
+                    <div class="in_bd_list_bd">
+                        <div class="in_bd_list_bd_title">
+                            <ul>
+                                <a ui-sref="activity.details({id:activity.id})" >
+
+                                    <li >＃{{activity.name}}<span>(已结束)</span></li>
+                                </a>
+                                    <li class="in_bd_list_bd_title_li2">上海</li>
+                            </ul>
+                        </div>
+                        <div class="in_bd_list_bd_nav">
+                            <ul>
+                                <li class="in_bd_list_bd_nav_li1">主办机构：番茄田教育</li>
+                                <li class="in_bd_list_bd_nav_li2">适合年龄：3－6岁</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="in_bd_list_btn">
+                        <ul>
+                            <li>
+                                <img src="/assets/images/index/sc1.png" onclick="this.src='images/index/sc2.png'" />9</li>
+                            <li>
+                                <a ui-sref="activity.comment({id:activity.id})" >
+                                    <img src="/assets/images/index/yan2.png" />12</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+            <div class="clearit"></div>
+        </div>
+        <div class="clearit"></div>
+    </div>
+</body>
+</html>

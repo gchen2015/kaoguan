@@ -1,6 +1,6 @@
 ﻿body { background-color: #fff; font-family: \534E\6587\7EC6\9ED1; }
 * { margin: 0px; padding: 0px; list-style-type: none; text-decoration: none; box-sizing: border-box; }
-a:link { text-decoration: none; color: #fff; }
+a:link { text-decoration: none; color: #5a5a5a; }
 a:visited { text-decoration: none; color: #fff; }
 a:hover { text-decoration: none; color: #f00; }
 a:active { text-decoration: none; color: #fff; }
@@ -76,7 +76,11 @@ a:active { text-decoration: none; color: #fff; }
     .in_bd_list_pic ul li { float: left; width: 193px; height: 193px; margin: 0 7px; }
         .in_bd_list_pic ul li img { border: none; width: 193px; height: 193px; }
 .in_bd_list_bd { float: left; width: 588px; height: 102px; margin-left: 23px; line-height: 70px; }
-.in_bd_list_bd_title { float: left; width: 588px; height: 57px; font-size: 1.5em; color: #000; }
+.in_bd_list_bd_title { float: left; width: 588px; height: 57px; font-size: 1.5em; color: #000; a:link    { color: #c00 }  /* unvisited links */
+                                                                                               a:visited { color: #0c0 }  /* visited links   */
+                                                                                               a:hover   { color: #00c }  /* user hovers     */
+                                                                                               a:active  { color: #ccc }  /* active links    */
+}
     .in_bd_list_bd_title ul li { float: left; }
 .in_bd_list_bd_title_li1 { width: 524px; }
     .in_bd_list_bd_title_li1 span { font-size: 0.7em; color: #9a9a9a; }

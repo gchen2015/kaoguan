@@ -109,7 +109,6 @@
                                 name: null,
                                 description: null,
                                 originaztion: null,
-                                dateTime: null,
                                 ageRanger: null,
                                 price: null,
                                 remark: null,
@@ -123,9 +122,10 @@
                                 image3: null,
                                 image4: null,
                                 activityType: null,
+                                delFlag: null,
+                                datetime: null,
                                 createTime: null,
                                 updateTime: null,
-                                delFlag: null,
                                 id: null
                             };
                         }

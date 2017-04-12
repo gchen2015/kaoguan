@@ -1,0 +1,76 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myUploadLabel" data-translate="kaoguanApp.upload.home.createOrEditLabel">Create or edit a Upload</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.upload.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.upload.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.upload.originalName" for="field_originalName">Original Name</label>
+            <input type="text" class="form-control" name="originalName" id="field_originalName"
+                    ng-model="vm.upload.originalName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.upload.uploadedAt" for="field_uploadedAt">Uploaded At</label>
+                <div class="input-group">
+                    <input id="field_uploadedAt" type="text" class="form-control" name="uploadedAt" uib-datepicker-popup="{{dateformat}}" ng-model="vm.upload.uploadedAt" is-open="vm.datePickerOpenStatus.uploadedAt"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('uploadedAt')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.upload.md5sum" for="field_md5sum">Md 5 Sum</label>
+            <input type="text" class="form-control" name="md5sum" id="field_md5sum"
+                    ng-model="vm.upload.md5sum"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.upload.uploadComplete" for="field_uploadComplete">Upload Complete</label>
+            <input type="checkbox" class="form-control" name="uploadComplete" id="field_uploadComplete"
+                    ng-model="vm.upload.uploadComplete"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.upload.totalChunks" for="field_totalChunks">Total Chunks</label>
+            <input type="number" class="form-control" name="totalChunks" id="field_totalChunks"
+                    ng-model="vm.upload.totalChunks"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.upload.totalSize" for="field_totalSize">Total Size</label>
+            <input type="number" class="form-control" name="totalSize" id="field_totalSize"
+                    ng-model="vm.upload.totalSize"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="kaoguanApp.upload.completedAt" for="field_completedAt">Completed At</label>
+                <div class="input-group">
+                    <input id="field_completedAt" type="text" class="form-control" name="completedAt" uib-datepicker-popup="{{dateformat}}" ng-model="vm.upload.completedAt" is-open="vm.datePickerOpenStatus.completedAt"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('completedAt')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

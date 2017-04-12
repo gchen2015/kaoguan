@@ -1,0 +1,68 @@
+<div>
+    <h2 data-translate="kaoguanApp.upload.home.title">Uploads</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="upload.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="kaoguanApp.upload.home.createLabel">
+                        Create new Upload
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="kaoguanApp.upload.originalName">Original Name</span></th>
+                    <th><span data-translate="kaoguanApp.upload.uploadedAt">Uploaded At</span></th>
+                    <th><span data-translate="kaoguanApp.upload.md5sum">Md 5 Sum</span></th>
+                    <th><span data-translate="kaoguanApp.upload.uploadComplete">Upload Complete</span></th>
+                    <th><span data-translate="kaoguanApp.upload.totalChunks">Total Chunks</span></th>
+                    <th><span data-translate="kaoguanApp.upload.totalSize">Total Size</span></th>
+                    <th><span data-translate="kaoguanApp.upload.completedAt">Completed At</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="upload in vm.uploads track by upload.id">
+                    <td><a ui-sref="upload-detail({id:upload.id})">{{upload.id}}</a></td>
+                    <td>{{upload.originalName}}</td>
+                        <td>{{upload.uploadedAt | date:'mediumDate'}}</td>
+                    <td>{{upload.md5sum}}</td>
+                    <td>{{upload.uploadComplete}}</td>
+                    <td>{{upload.totalChunks}}</td>
+                    <td>{{upload.totalSize}}</td>
+                        <td>{{upload.completedAt | date:'mediumDate'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="upload-detail({id:upload.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="upload.edit({id:upload.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="upload.delete({id:upload.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

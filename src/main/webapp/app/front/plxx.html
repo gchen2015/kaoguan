@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta content="target-densitydpi=device-dpi,width=640px,user-scalable=no" name="viewport">
+    <title>活动详细</title>
+    <link href="/assets/styles/css.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="wap_box">
+        <div class="head2">
+            <ul>
+                <li class="hd2_back">
+                    <a href="javascript:;">
+                        <img src="/assets/images/back.png" /></a></li>
+                <li class="hd2_select">
+                    <!--<select id="areas" class="text" style="">
+                        <option>上海</option>
+                        <option>黄浦区</option>
+                        <option>全部地区</option>
+                    </select>-->
+                </li>
+                <li class="hd2_title">评论详情</li>
+                <li style="width: 60px;"></li>
+                <li class="hd2_select2 ">
+                    <!--<select id="ages" class="text" style="">
+                        <option>0-1岁</option>
+                        <option>1-3岁</option>
+                        <option>3-6岁</option>
+                    </select>-->
+            </ul>
+        </div>
+        <div class="plxx_bd">
+            <div class="plxx_bd_cover">
+                <img src="/assets/images/index/p2.jpg" />
+            </div>
+            <div class="plxx_bd_area">
+                <div class="plxx_bd_area_xx_a1">
+                    <div class="plxx_bd_area_xx_a1_admin">
+                        <div class="plxx_bd_area_xx_a1_admin_pic">
+                            <img src="/assets/images/index/p3.jpg" />
+                        </div>
+                        <div class="plxx_bd_area_xx_a1_admin_title">
+                            <ul>
+                                <li>
+                                    <div style="float: left; width: 100%;">
+                                        <div class="plxx_bd_area_xx_a1_admin_title_p1">亲子互动</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="plxx_bd_area_xx_a1_admin_title_p2">刚刚</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="plxx_bd_area_xx_a1_bd">
+                        <div class="plxx_bd_area_xx_a1_bd_title">
+                            读书能陶冶人
+                        </div>
+                        <div class="plxx_bd_area_xx_a1_bd_nav">
+                            <div class="plxx_bd_area_xx_a1_bd_nav_up1" id="aa">
+                                <p>
+                                    所以，我们应该多读书，为我们以后的人生道路打下好、扎实的基础！我们应该多读书，为我们以后的...们应该多读书，为我们以后的...们应该多读书，为我们以后的...们应该多读书，为我们以后的...为我们以后的...们应该多读书，为我们以后的...们应该多读书，为我们以后的...
+                                </p>
+                            </div>
+                            <div class="plxx_bd_area_xx_a1_bd_nav_btn" id="bb" style="display: ;" onclick="navxl()"></div>
+                            <div class="clearit"></div>
+                        </div>
+                        <div class="clearit"></div>
+                    </div>
+                    <div class="clearit"></div>
+                </div>
+                <div class="plxx_bd_area_pl">
+                    <div class="plxx_bd_area_pl_list" ng-repeat="comment in allComments">
+                        <div class="plxx_bd_area_pl_list_pic"></div>
+
+                        <div class="plxx_bd_area_pl_list_title">
+                            <ul>
+                                <li>
+                                    <div class="plxx_bd_area_pl_list_title_name">{{comment.user.login}}</div>
+                                    <div class="plxx_bd_area_pl_list_title_time">1分钟前</div>
+                                </li>
+                                <li>
+                                    <div class="plxx_bd_area_pl_list_title_nav">
+                                        <p>{{comment.remark}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+
+                        <div class="clearit"></div>
+                    </div>
+
+
+
+                    <div class="clearit"></div>
+                </div>
+                <div class="clearit"></div>
+            </div>
+
+            <div class="clearit"></div>
+        </div>
+        <!--
+        <div class="foot_dh">
+            <div class="foot_dh_area">
+                <div class="foot_dh_area_b1">
+                    <ul>
+                        <li style="width: 80px; text-align: right;">
+                            <img src="/assets/images/index/zan2.png" onclick="this.src='/assets/images/index/sc2.png'" /></li>
+                        <li style="text-align: left; width: 40px; color: #959595;">&nbsp;99</li>
+                    </ul>
+                </div>
+                <div class="foot_dh_area_b3">
+                    <ul>
+                        <li style="width: 80px; text-align: right;">
+                            <img src="/assets/images/index/yan2.png" /></li>
+                        <li style="text-align: left; width: 40px; color: #959595;">&nbsp;99</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        -->
+
+
+     <form name="editForm" role="form" novalidate ng-submit="vm.save()" class="form-inline" ng-hide="toggled">
+            <div class="form-group">
+                <input  class="form-control" placeholder="github username" ng-keydown="selected=false" type="text" required />
+                <typeahead class="typeahead" model="items" prompt="Start typing a US state" />
+            </div>
+            <div class="form-group">
+                <textarea ng-model="vm.comment.remark" name="remark" id="field_remark" value="your comment.." class="form-control" rows="1" ng-minlength="5" required></textarea>
+
+
+            </div>
+            <button ng-disabled="form.$invalid" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+
+</html>
