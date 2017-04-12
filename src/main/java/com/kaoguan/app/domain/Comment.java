@@ -5,7 +5,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 /**
@@ -28,9 +28,6 @@ public class Comment implements Serializable {
     @Column(name = "remark")
     private String remark;
 
-    @Column(name = "date_time")
-    private LocalDate dateTime;
-
     @Column(name = "image_1")
     private String image1;
 
@@ -42,6 +39,9 @@ public class Comment implements Serializable {
 
     @Column(name = "image_4")
     private String image4;
+
+    @Column(name = "date_time")
+    private ZonedDateTime dateTime;
 
     @ManyToOne
     private User user;
@@ -81,19 +81,6 @@ public class Comment implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
-    }
-
-    public LocalDate getDateTime() {
-        return dateTime;
-    }
-
-    public Comment dateTime(LocalDate dateTime) {
-        this.dateTime = dateTime;
-        return this;
-    }
-
-    public void setDateTime(LocalDate dateTime) {
-        this.dateTime = dateTime;
     }
 
     public String getImage1() {
@@ -148,6 +135,19 @@ public class Comment implements Serializable {
         this.image4 = image4;
     }
 
+    public ZonedDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public Comment dateTime(ZonedDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
+    public void setDateTime(ZonedDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
     public User getUser() {
         return user;
     }
@@ -200,11 +200,11 @@ public class Comment implements Serializable {
             "id=" + id +
             ", description='" + description + "'" +
             ", remark='" + remark + "'" +
-            ", dateTime='" + dateTime + "'" +
             ", image1='" + image1 + "'" +
             ", image2='" + image2 + "'" +
             ", image3='" + image3 + "'" +
             ", image4='" + image4 + "'" +
+            ", dateTime='" + dateTime + "'" +
             '}';
     }
 }

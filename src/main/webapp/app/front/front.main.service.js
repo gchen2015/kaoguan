@@ -16,7 +16,7 @@
 
         function findAllActivities (done) {
 
-            return $http.get('api/activities/news').then(function (response) {
+            return $http.get('api/activities').then(function (response) {
                 return done(response.data);
             });
         }
@@ -38,7 +38,7 @@
 
             function findAllComments (done) {
 
-                return $http.get('api/comments/news').then(function (response) {
+                return $http.get('api/comments').then(function (response) {
                     return done(response.data);
                 });
             }

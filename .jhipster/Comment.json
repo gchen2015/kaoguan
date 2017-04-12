@@ -26,10 +26,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "dateTime",
-            "fieldType": "LocalDate"
-        },
-        {
             "fieldName": "image1",
             "fieldType": "String"
         },
@@ -44,6 +40,10 @@
         {
             "fieldName": "image4",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "dateTime",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170329082952",

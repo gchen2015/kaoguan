@@ -168,11 +168,16 @@
             .controller('FrontActivityCommentController', FrontActivityCommentController);
 
 
-         FrontActivityCommentController.$inject = ['$rootScope','$scope', '$http', 'Principal', 'Comment', 'CommentService','$state','$stateParams'];
+         FrontActivityCommentController.$inject = ['$rootScope','$scope', '$http', 'Principal', 'Comment', 'CommentService','$state','$stateParams','moment'];
 
 
-          function FrontActivityCommentController ($rootScope, $scope, $http, Principal,Comment,CommentService, $state,$stateParams) {
+          function FrontActivityCommentController ($rootScope, $scope, $http, Principal,Comment,CommentService, $state,$stateParams,moment) {
               var vm = this;
+
+              $scope.message = {
+                 text: 'hello world!',
+                 time: new Date()
+              };
 
               vm.save = save ;
               console.debug('FrontActivityCommentController start');

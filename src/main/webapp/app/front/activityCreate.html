@@ -46,6 +46,14 @@
                 />
             </div>
             <div class="fqt_bd_list">
+                <label class="control-label" data-translate="活动类型" for="field_activityType">活动类型</label>
+                <select class="form-control" name="activityType" ng-model="vm.activity.activityType" id="field_activityType">
+                    <option value="Product" data-translate="kaoguanApp.ActivityType.Product">Product</option>
+                    <option value="Test" data-translate="kaoguanApp.ActivityType.Test">Test</option>
+                    <option value="Activity" data-translate="kaoguanApp.ActivityType.Activity">Activity</option>
+                </select>
+            </div>
+            <div class="fqt_bd_list">
                 <label class="control-label" data-translate="主办机构" for="field_originaztion">主办机构</label>
                 <input type="text" class="form-control" name="originaztion" id="field_originaztion"
                        ng-model="vm.activity.originaztion"

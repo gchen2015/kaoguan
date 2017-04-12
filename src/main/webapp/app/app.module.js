@@ -18,8 +18,12 @@
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar',
             'ahdin',
-            'flow'
+            'flow',
+            'angularMoment'
         ])
+        .constant('angularMomentConfig', {
+              timezone: 'Asia/Shanghai' // e.g. 'Europe/London'
+          })
         .config(['flowFactoryProvider', function (flowFactoryProvider) {
                                             	flowFactoryProvider.defaults = {
                                             			target: 'api/uploader',
@@ -38,10 +42,11 @@
                                             }])
         .run(run);
 
-    run.$inject = ['stateHandler', 'translationHandler'];
+    run.$inject = ['stateHandler', 'translationHandler','amMoment'];
 
-    function run(stateHandler, translationHandler) {
+    function run(stateHandler, translationHandler,amMoment) {
         stateHandler.initialize();
         translationHandler.initialize();
+        amMoment.changeLocale('de');
     }
 })();

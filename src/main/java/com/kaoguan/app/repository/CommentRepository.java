@@ -1,8 +1,8 @@
 package com.kaoguan.app.repository;
 
 import com.kaoguan.app.domain.Comment;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+
+import org.springframework.data.jpa.repository.*;
 
 import java.util.List;
 
@@ -14,8 +14,5 @@ public interface CommentRepository extends JpaRepository<Comment,Long> {
 
     @Query("select comment from Comment comment where comment.user.login = ?#{principal.username}")
     List<Comment> findByUserIsCurrentUser();
-
-    @Query("select comment from Comment comment order by comment.dateTime desc ")
-    List<Comment> findAllNewsComments();
 
 }

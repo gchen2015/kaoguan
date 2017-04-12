@@ -21,11 +21,11 @@
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="kaoguanApp.comment.description">Description</span></th>
                     <th><span data-translate="kaoguanApp.comment.remark">Remark</span></th>
-                    <th><span data-translate="kaoguanApp.comment.dateTime">Date Time</span></th>
                     <th><span data-translate="kaoguanApp.comment.image1">Image 1</span></th>
                     <th><span data-translate="kaoguanApp.comment.image2">Image 2</span></th>
                     <th><span data-translate="kaoguanApp.comment.image3">Image 3</span></th>
                     <th><span data-translate="kaoguanApp.comment.image4">Image 4</span></th>
+                    <th><span data-translate="kaoguanApp.comment.dateTime">Date Time</span></th>
                     <th><span data-translate="kaoguanApp.comment.user">User</span></th>
                     <th><span data-translate="kaoguanApp.comment.activity">Activity</span></th>
                     <th></th>
@@ -36,11 +36,11 @@
                     <td><a ui-sref="comment-detail({id:comment.id})">{{comment.id}}</a></td>
                     <td>{{comment.description}}</td>
                     <td>{{comment.remark}}</td>
-                        <td>{{comment.dateTime | date:'mediumDate'}}</td>
                     <td>{{comment.image1}}</td>
                     <td>{{comment.image2}}</td>
                     <td>{{comment.image3}}</td>
                     <td>{{comment.image4}}</td>
+                    <td>{{comment.dateTime | date:'medium'}}</td>
                     <td>
                         {{comment.user.login}}
                     </td>

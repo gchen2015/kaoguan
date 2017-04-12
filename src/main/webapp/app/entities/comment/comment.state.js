@@ -106,11 +106,11 @@
                             return {
                                 description: null,
                                 remark: null,
-                                dateTime: null,
                                 image1: null,
                                 image2: null,
                                 image3: null,
                                 image4: null,
+                                dateTime: null,
                                 id: null
                             };
                         }

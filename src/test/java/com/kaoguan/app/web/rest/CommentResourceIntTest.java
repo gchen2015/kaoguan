@@ -21,10 +21,13 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDate;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
 import java.time.ZoneId;
 import java.util.List;
 
+import static com.kaoguan.app.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -45,9 +48,6 @@ public class CommentResourceIntTest {
     private static final String DEFAULT_REMARK = "AAAAAAAAAA";
     private static final String UPDATED_REMARK = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_DATE_TIME = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DATE_TIME = LocalDate.now(ZoneId.systemDefault());
-
     private static final String DEFAULT_IMAGE_1 = "AAAAAAAAAA";
     private static final String UPDATED_IMAGE_1 = "BBBBBBBBBB";
 
@@ -59,6 +59,9 @@ public class CommentResourceIntTest {
 
     private static final String DEFAULT_IMAGE_4 = "AAAAAAAAAA";
     private static final String UPDATED_IMAGE_4 = "BBBBBBBBBB";
+
+    private static final ZonedDateTime DEFAULT_DATE_TIME = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_DATE_TIME = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private CommentRepository commentRepository;
@@ -99,11 +102,11 @@ public class CommentResourceIntTest {
         Comment comment = new Comment()
                 .description(DEFAULT_DESCRIPTION)
                 .remark(DEFAULT_REMARK)
-                .dateTime(DEFAULT_DATE_TIME)
                 .image1(DEFAULT_IMAGE_1)
                 .image2(DEFAULT_IMAGE_2)
                 .image3(DEFAULT_IMAGE_3)
-                .image4(DEFAULT_IMAGE_4);
+                .image4(DEFAULT_IMAGE_4)
+                .dateTime(DEFAULT_DATE_TIME);
         return comment;
     }
 
@@ -130,11 +133,11 @@ public class CommentResourceIntTest {
         Comment testComment = commentList.get(commentList.size() - 1);
         assertThat(testComment.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testComment.getRemark()).isEqualTo(DEFAULT_REMARK);
-        assertThat(testComment.getDateTime()).isEqualTo(DEFAULT_DATE_TIME);
         assertThat(testComment.getImage1()).isEqualTo(DEFAULT_IMAGE_1);
         assertThat(testComment.getImage2()).isEqualTo(DEFAULT_IMAGE_2);
         assertThat(testComment.getImage3()).isEqualTo(DEFAULT_IMAGE_3);
         assertThat(testComment.getImage4()).isEqualTo(DEFAULT_IMAGE_4);
+        assertThat(testComment.getDateTime()).isEqualTo(DEFAULT_DATE_TIME);
     }
 
     @Test
@@ -170,11 +173,11 @@ public class CommentResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(comment.getId().intValue())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].remark").value(hasItem(DEFAULT_REMARK.toString())))
-            .andExpect(jsonPath("$.[*].dateTime").value(hasItem(DEFAULT_DATE_TIME.toString())))
             .andExpect(jsonPath("$.[*].image1").value(hasItem(DEFAULT_IMAGE_1.toString())))
             .andExpect(jsonPath("$.[*].image2").value(hasItem(DEFAULT_IMAGE_2.toString())))
             .andExpect(jsonPath("$.[*].image3").value(hasItem(DEFAULT_IMAGE_3.toString())))
-            .andExpect(jsonPath("$.[*].image4").value(hasItem(DEFAULT_IMAGE_4.toString())));
+            .andExpect(jsonPath("$.[*].image4").value(hasItem(DEFAULT_IMAGE_4.toString())))
+            .andExpect(jsonPath("$.[*].dateTime").value(hasItem(sameInstant(DEFAULT_DATE_TIME))));
     }
 
     @Test
@@ -190,11 +193,11 @@ public class CommentResourceIntTest {
             .andExpect(jsonPath("$.id").value(comment.getId().intValue()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.remark").value(DEFAULT_REMARK.toString()))
-            .andExpect(jsonPath("$.dateTime").value(DEFAULT_DATE_TIME.toString()))
             .andExpect(jsonPath("$.image1").value(DEFAULT_IMAGE_1.toString()))
             .andExpect(jsonPath("$.image2").value(DEFAULT_IMAGE_2.toString()))
             .andExpect(jsonPath("$.image3").value(DEFAULT_IMAGE_3.toString()))
-            .andExpect(jsonPath("$.image4").value(DEFAULT_IMAGE_4.toString()));
+            .andExpect(jsonPath("$.image4").value(DEFAULT_IMAGE_4.toString()))
+            .andExpect(jsonPath("$.dateTime").value(sameInstant(DEFAULT_DATE_TIME)));
     }
 
     @Test
@@ -217,11 +220,11 @@ public class CommentResourceIntTest {
         updatedComment
                 .description(UPDATED_DESCRIPTION)
                 .remark(UPDATED_REMARK)
-                .dateTime(UPDATED_DATE_TIME)
                 .image1(UPDATED_IMAGE_1)
                 .image2(UPDATED_IMAGE_2)
                 .image3(UPDATED_IMAGE_3)
-                .image4(UPDATED_IMAGE_4);
+                .image4(UPDATED_IMAGE_4)
+                .dateTime(UPDATED_DATE_TIME);
 
         restCommentMockMvc.perform(put("/api/comments")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -234,11 +237,11 @@ public class CommentResourceIntTest {
         Comment testComment = commentList.get(commentList.size() - 1);
         assertThat(testComment.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testComment.getRemark()).isEqualTo(UPDATED_REMARK);
-        assertThat(testComment.getDateTime()).isEqualTo(UPDATED_DATE_TIME);
         assertThat(testComment.getImage1()).isEqualTo(UPDATED_IMAGE_1);
         assertThat(testComment.getImage2()).isEqualTo(UPDATED_IMAGE_2);
         assertThat(testComment.getImage3()).isEqualTo(UPDATED_IMAGE_3);
         assertThat(testComment.getImage4()).isEqualTo(UPDATED_IMAGE_4);
+        assertThat(testComment.getDateTime()).isEqualTo(UPDATED_DATE_TIME);
     }
 
     @Test
