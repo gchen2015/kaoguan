@@ -47,6 +47,6 @@
     function run(stateHandler, translationHandler,amMoment) {
         stateHandler.initialize();
         translationHandler.initialize();
-        amMoment.changeLocale('de');
+        amMoment.changeLocale('zh-cn');
     }
 })();

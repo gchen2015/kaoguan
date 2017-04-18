@@ -21,19 +21,27 @@
                         <img src="/assets/images/index/admin.jpg" /></a>
                 </div>
                 <div class="hd_a1_select">
+                    <!--
                     <select name="drop2" class="ui-select">
                         <option value="">全部年龄</option>
                         <option value="0~1岁">0~1岁</option>
                         <option value="1~3岁">1~3岁</option>
                     </select>
+                    -->
+
+                    <select class="ui-select" ng-model="ageTemplateSelected" ng-change="changedValue(ageTemplateSelected)"
+                            data-ng-options="ageTemplate as ageTemplate.name for ageTemplate in ageTemplates">
+                        <option value="" name ="">全部年龄</option>
+                    </select>
                 </div>
+
             </div>
             <div class="hd_a2">
                 <div class="hd_a2_select">
-                    <select id="orderTimeDataSel" class="text" style="">
-                        <option>全部地区</option>
-                        <option>黄浦区</option>
-                        <option>全部地区</option>
+
+                    <select class="ui-select" ng-model="locationTemplateSelected" ng-change="changedValue(locationTemplateSelected)"
+                            data-ng-options="locationTemplate as locationTemplate.name for locationTemplate in locationTemplates">
+                        <option value="" name="">全部地区</option>
                     </select>
                 </div>
                 <div class="hd_a2_pic">
@@ -77,64 +85,77 @@
 
 
 </script>
+            <div infinite-scroll="activityScrollService.nextPage()" infinite-scroll-disabled='activityScrollService.busy' infinite-scroll-distance="1">
 
-
-            <div  ng-repeat="activity in newActivities">
-
-                <div class="in_bd_list" onclick="">
-                    <div class="in_bd_list_hd">
-                        <div class="in_bd_list_hd_admin">
-                            <div class="in_bd_list_hd_admin_pic">
-                                <img src="/assets/images/index/p3.jpg" />
-                            </div>
-                            <div class="in_bd_list_hd_admin_title">
-                                <p class="in_bd_list_hd_admin_title_p1">亲子互动</p>
-                                <p class="in_bd_list_hd_admin_title_p2">刚刚</p>
-                            </div>
-                        </div>
-                        <div class="in_bd_list_hd_score">
-                            <span>94</span>分
-                        </div>
-                    </div>
-                    <div class="in_bd_list_pic">
-                        <ul>
-                            <li>
-                                <img src="/assets/images/index/p2.jpg" /></li>
-                            <li>
-                                <img src="/assets/images/index/p2.jpg" /></li>
-                            <li>
-                                <img src="/assets/images/index/p2.jpg" /></li>
-                        </ul>
-                    </div>
-                    <div class="in_bd_list_bd">
-                        <div class="in_bd_list_bd_title">
-                            <ul>
-                                <a ui-sref="activity.details({id:activity.id})" >
-
-                                    <li >＃{{activity.name}}<span>(已结束)</span></li>
-                                </a>
-                                    <li class="in_bd_list_bd_title_li2">上海</li>
-                            </ul>
-                        </div>
-                        <div class="in_bd_list_bd_nav">
-                            <ul>
-                                <li class="in_bd_list_bd_nav_li1">主办机构：番茄田教育</li>
-                                <li class="in_bd_list_bd_nav_li2">适合年龄：3－6岁</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="in_bd_list_btn">
-                        <ul>
-                            <li>
-                                <img src="/assets/images/index/sc1.png" onclick="this.src='images/index/sc2.png'" />9</li>
-                            <li>
-                                <a ui-sref="activity.comment({id:activity.id})" >
-                                    <img src="/assets/images/index/yan2.png" />12</a></li>
-                        </ul>
-                    </div>
+               <!--
+                <div ng-repeat='item in reddit.items'>
+                    aaaa:
+                    {{item.name}}
                 </div>
+                -->
 
+
+                <div ng-show='!activityScrollService.busy'>Loading data...</div>
+
+
+                <div  ng-repeat="activity in activityScrollService.items">
+
+                    <div class="in_bd_list" onclick="">
+                        <div class="in_bd_list_hd">
+                            <div class="in_bd_list_hd_admin">
+                                <div class="in_bd_list_hd_admin_pic">
+                                    <img src="/assets/images/index/p3.jpg" />
+                                </div>
+                                <div class="in_bd_list_hd_admin_title">
+                                    <p class="in_bd_list_hd_admin_title_p1">亲子互动</p>
+                                    <p class="in_bd_list_hd_admin_title_p2">刚刚</p>
+                                </div>
+                            </div>
+                            <div class="in_bd_list_hd_score">
+                                <span>94</span>分
+                            </div>
+                        </div>
+                        <div class="in_bd_list_pic">
+                            <ul>
+                                <li>
+                                    <img src="/assets/images/index/p2.jpg" /></li>
+                                <li>
+                                    <img src="/assets/images/index/p2.jpg" /></li>
+                                <li>
+                                    <img src="/assets/images/index/p2.jpg" /></li>
+                            </ul>
+                        </div>
+                        <div class="in_bd_list_bd">
+                            <div class="in_bd_list_bd_title">
+                                <ul>
+                                    <a ui-sref="activity.details({id:activity.id})" >
+
+                                        <li >＃{{activity.name}}<span>(已结束)</span></li>
+                                    </a>
+                                    <li class="in_bd_list_bd_title_li2">上海</li>
+                                </ul>
+                            </div>
+                            <div class="in_bd_list_bd_nav">
+                                <ul>
+                                    <li class="in_bd_list_bd_nav_li1">主办机构：番茄田教育</li>
+                                    <li class="in_bd_list_bd_nav_li2">适合年龄：3－6岁</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="in_bd_list_btn">
+                            <ul>
+                                <li>
+                                    <img src="/assets/images/index/sc1.png" onclick="this.src='images/index/sc2.png'" />9</li>
+                                <li>
+                                    <a ui-sref="activity.comment({id:activity.id})" >
+                                        <img src="/assets/images/index/yan2.png" />12</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
 
         </div>
 

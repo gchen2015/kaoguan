@@ -3,13 +3,76 @@
 (function() {
     'use strict';
 
+
+    angular
+            .module('kaoguanApp')
+            .factory('ActivityScrollService', ActivityScrollService);
+
+    ActivityScrollService.$inject = ['$rootScope', '$http','ActivityService'];
+
+             function ActivityScrollService ($rootScope, $http,ActivityService) {
+
+                  $rootScope.ageTemplateSelected = {value :""};
+                  $rootScope.locationTemplateSelected = {value :""};
+
+
+                   var ActivityScrollService = function() {
+                      this.items = [];
+                      this.busy = false;
+                      this.after = '';
+                    };
+
+
+                   ActivityScrollService.prototype.nextPage = function () {
+
+                        // busy - stop
+                        if (this.busy == true) {
+
+                            return;
+                        }
+
+                        // busy now
+                        this.busy = true;
+
+
+                        //this.offset = 0;
+                        ActivityService.findAllActivitiesInfiniteScroll(
+                             this.offset,$rootScope.ageTemplateSelected.value,$rootScope.locationTemplateSelected.value, function (response) {
+
+                            // stop loading if no data returned
+                            if(response.length == 0) {
+
+                                return;
+                            }
+
+                            var _this = this;
+                            angular.forEach(response, function (a_visit) {
+                                _this.items.push(a_visit);
+                            });
+
+                            // set the last acquired record value
+                            this.offset = this.items[this.items.length - 1].id;
+
+                            // not busy
+                            this.busy = false;
+                        }.bind(this));
+                    };
+
+                    return ActivityScrollService;
+
+                }
+
     angular
         .module('kaoguanApp')
         .controller('FrontMainController', FrontMainController);
 
-    FrontMainController.$inject = ['$rootScope','$scope', '$http', 'Principal', 'LoginService', 'ActivityService','$state'];
 
-    function FrontMainController ($rootScope, $scope, $http, Principal, LoginService,ActivityService, $state) {
+
+
+
+    FrontMainController.$inject = ['$rootScope','$scope', '$http', 'Principal', 'LoginService', 'ActivityService','$state','ActivityScrollService'];
+
+    function FrontMainController ($rootScope, $scope, $http, Principal, LoginService,ActivityService, $state,ActivityScrollService) {
         var vm = this;
 
         console.debug('FrontMainController start');
@@ -19,6 +82,35 @@
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
+
+        $scope.activityScrollService = new ActivityScrollService();
+
+
+        $scope.ageTemplates = [{id:1,name:"0-1岁",value:"0-1"},{id:2,name:"1-3岁",value:"1-3"},{id:3,name:"3-6岁",value:"3-6"}];
+
+        $scope.locationTemplates = [{id:1,name:"上海",value:"上海"},{id:2,name:"北京",value:"北京"},{id:3,name:"深圳",value:"深圳"}];
+
+        $scope.changedValue = function(item) {
+
+
+               if($scope.ageTemplateSelected  == null) {
+
+                 $scope.ageTemplateSelected = {value :""};
+               }
+
+               if($scope.locationTemplateSelected  == null) {
+
+                 $scope.locationTemplateSelected = {value :""};
+               }
+
+               ActivityService.findAllActivitiesByAgeAndCity($scope.ageTemplateSelected.value,$scope.locationTemplateSelected.value,function(result){
+
+                           $scope.activityScrollService.items = result;
+
+               });
+        }
+
+
 
         getAccount();
 
@@ -38,7 +130,6 @@
             console.debug(result)
     		$scope.newActivities = result;
     	});
-
 
     	$scope.jump = function(link){
     		window.location.href = link;
@@ -76,8 +167,8 @@
       FrontActivityCreateController.$inject = ['$rootScope','$scope', '$cookies','$http', 'Principal','Activity', 'ActivityService','$state','$stateParams','FlashService'];
 
           function FrontActivityCreateController ($rootScope, $scope, $cookies, $http, Principal,Activity,ActivityService, $state, $stateParams,FlashService) {
-                   var vm = this;
-                   //vm.activity = entity;
+                    var vm = this;
+
                     vm.activity = {};
                     vm.datePickerOpenStatus = {};
 

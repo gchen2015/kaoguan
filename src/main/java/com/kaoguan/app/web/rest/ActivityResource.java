@@ -2,10 +2,10 @@ package com.kaoguan.app.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kaoguan.app.domain.Activity;
-
 import com.kaoguan.app.repository.ActivityRepository;
 import com.kaoguan.app.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ public class ActivityResource {
     private final Logger log = LoggerFactory.getLogger(ActivityResource.class);
 
     private static final String ENTITY_NAME = "activity";
-        
+
     private final ActivityRepository activityRepository;
 
     public ActivityResource(ActivityRepository activityRepository) {
@@ -87,6 +87,49 @@ public class ActivityResource {
         List<Activity> activities = activityRepository.findAll();
         return activities;
     }
+
+    /**
+     * GET  /activities : get all the activities.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of activities in body
+     */
+    @GetMapping("/activitiesByAgeAndCity")
+    @Timed
+    public List<Activity> getAllActivitiesByAgeAndCity(@RequestParam(value = "ageRange") String ageRange,@RequestParam(value = "city") String city) {
+
+        log.debug("REST request to get all getAllActivitiesByAgeAndCity");
+        List<Activity> activities;
+        if(StringUtils.isNotEmpty(ageRange) && StringUtils.isNotEmpty(city)){
+            activities = activityRepository.findFirst10ByAgeRangerAndLocationCity(ageRange,city);
+        }else if (StringUtils.isNotEmpty(ageRange) && StringUtils.isEmpty(city)){
+            activities = activityRepository.findFirst10ByAgeRanger(ageRange);
+        }else if (StringUtils.isEmpty(ageRange) && StringUtils.isNotEmpty(city)){
+            activities = activityRepository.findFirst10ByLocationCity(city);
+        }else{
+            activities = activityRepository.findFirst10();
+        }
+
+        return activities;
+    }
+
+
+    @GetMapping("activities/infiniteScroll")
+    public List<Activity> getAllActivitiesInfiniteScroll(@RequestParam(value = "afterId") String afterId,@RequestParam(value = "ageRanger") String ageRanger,@RequestParam(value = "city") String city) {
+
+        log.debug("REST request to getAllActivitiesInfiniteScroll");
+        log.debug("afterId:"+afterId);
+        Long afterActivityId;
+        try{
+            afterActivityId = Long.valueOf(afterId);
+        }catch (Exception e){
+            afterActivityId = Long.valueOf("0");
+        }
+
+        List<Activity> activities = activityRepository.findActivityInfiniteScrollData(afterActivityId,ageRanger,city);
+        return activities;
+    }
+
+
 
     /**
      * GET  /activities/:id : get the "id" activity.

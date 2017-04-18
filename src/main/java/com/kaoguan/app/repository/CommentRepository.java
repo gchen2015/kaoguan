@@ -1,8 +1,8 @@
 package com.kaoguan.app.repository;
 
 import com.kaoguan.app.domain.Comment;
-
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
