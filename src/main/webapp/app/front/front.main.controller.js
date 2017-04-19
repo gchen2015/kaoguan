@@ -265,6 +265,8 @@
           function FrontActivityCommentController ($rootScope, $scope, $http, Principal,Comment,CommentService, $state,$stateParams,moment) {
               var vm = this;
 
+                $scope.state = $state;
+
               $scope.message = {
                  text: 'hello world!',
                  time: new Date()

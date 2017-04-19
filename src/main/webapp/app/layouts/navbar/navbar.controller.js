@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.isNavbarCollapsed = true;
+        vm.isNavbarShow = $state.$current.hideNavbar;
         vm.isAuthenticated = Principal.isAuthenticated;
 
         ProfileService.getProfileInfo().then(function(response) {

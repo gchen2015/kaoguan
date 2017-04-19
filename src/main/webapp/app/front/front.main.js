@@ -7,7 +7,7 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('home', {
+        .state('fronthome', {
 
                       url: '/',
                         data: {
@@ -35,7 +35,8 @@
                             }
                         },
                         resolve: {
-                        }
+                        },
+                         hideNavbar: true
            }).state('activity.login', {
 
                          url: 'front/login',
@@ -51,7 +52,8 @@
                            }
                          },
                          resolve: {
-                         }
+                         },
+                           hideNavbar: true
             }).state('activity.create', {
 
                                        url: 'front/activityCreate',
@@ -71,7 +73,7 @@
              })
             .state('activity.person', {
 
-                         url: 'front/person',
+                         url: '/front/person',
                          data: {
 
                                pageTitle: '个人信息'
@@ -85,10 +87,28 @@
                           },
                          resolve: {
 
-                        }
+                        },
+                         hideNavbar: true
+           }) .state('activity.personadmin', {
+
+                                      url: '/front/person2',
+                                      data: {
+
+                                            pageTitle: '个人信息'
+                                      },
+                                      views: {
+                                              'content@': {
+                                       templateUrl: 'app/home/home.html',
+                                       controller: 'HomeController',
+                                                   controllerAs: 'vm'
+                                              }
+                                       },
+                                      resolve: {
+
+                                     }
            }).state('activity.comment', {
 
-                                      url: 'front/comment/{id}',
+                                      url: '/front/comment/{id}',
                                       data: {
 
                                             pageTitle: '评论详情'
@@ -100,11 +120,13 @@
                                                    controllerAs: 'vm'
                                               }
                                        }
+                                       ,
+                                         hideNavbar: true
 
 
             }).state('activity.register', {
 
-                          url: 'front/register',
+                          url: '/front/register',
                           data: {
                                   authorities: [],
                                    pageTitle: 'Registration'
@@ -115,20 +137,8 @@
                                        controller: 'RegisterController',
                                        controllerAs: 'vm'
                                      }
-                         }
-            }).state('manage', {
-                           parent: 'app',
-                           url: '/admin',
-                           data: {
-                                  authorities: []
-                           },
-                           views: {
-                                   'content@': {
-                                       templateUrl: 'app/home/home.html',
-                                       controller: 'HomeController',
-                                       controllerAs: 'vm'
-                                 }
-                          }
+                         },
+                          hideNavbar: true
             })
 
         ;
