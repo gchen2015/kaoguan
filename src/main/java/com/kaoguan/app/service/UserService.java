@@ -7,9 +7,8 @@ import com.kaoguan.app.repository.PersistentTokenRepository;
 import com.kaoguan.app.repository.UserRepository;
 import com.kaoguan.app.security.AuthoritiesConstants;
 import com.kaoguan.app.security.SecurityUtils;
-import com.kaoguan.app.service.util.RandomUtil;
 import com.kaoguan.app.service.dto.UserDTO;
-
+import com.kaoguan.app.service.util.RandomUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -21,7 +20,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * Service class for managing users.
@@ -86,7 +88,7 @@ public class UserService {
     }
 
     public User createUser(String login, String password, String firstName, String lastName, String email,
-        String imageUrl, String langKey) {
+        String imageUrl, String langKey,String phoneNumer) {
 
         User newUser = new User();
         Authority authority = authorityRepository.findOne(AuthoritiesConstants.USER);
@@ -100,6 +102,7 @@ public class UserService {
         newUser.setEmail(email);
         newUser.setImageUrl(imageUrl);
         newUser.setLangKey(langKey);
+        newUser.setPhoneNumber(phoneNumer);
         // new user is not active
         newUser.setActivated(false);
         // new user gets registration key
@@ -123,6 +126,10 @@ public class UserService {
         } else {
             user.setLangKey(userDTO.getLangKey());
         }
+
+        user.setPhoneNumber(userDTO.getPhoneNumber());
+
+
         if (userDTO.getAuthorities() != null) {
             Set<Authority> authorities = new HashSet<>();
             userDTO.getAuthorities().forEach(
@@ -143,12 +150,13 @@ public class UserService {
     /**
      * Update basic information (first name, last name, email, language) for the current user.
      */
-    public void updateUser(String firstName, String lastName, String email, String langKey) {
+    public void updateUser(String firstName, String lastName, String email, String langKey,String phoneNumer) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(user -> {
             user.setFirstName(firstName);
             user.setLastName(lastName);
             user.setEmail(email);
             user.setLangKey(langKey);
+            user.setPhoneNumber(phoneNumer);
             log.debug("Changed Information for User: {}", user);
         });
     }
@@ -167,6 +175,7 @@ public class UserService {
                 user.setImageUrl(userDTO.getImageUrl());
                 user.setActivated(userDTO.isActivated());
                 user.setLangKey(userDTO.getLangKey());
+                user.setPhoneNumber(userDTO.getPhoneNumber());
                 Set<Authority> managedAuthorities = user.getAuthorities();
                 managedAuthorities.clear();
                 userDTO.getAuthorities().stream()
@@ -193,7 +202,7 @@ public class UserService {
         });
     }
 
-    @Transactional(readOnly = true)    
+    @Transactional(readOnly = true)
     public Page<UserDTO> getAllManagedUsers(Pageable pageable) {
         return userRepository.findAll(pageable).map(UserDTO::new);
     }

@@ -41,6 +41,9 @@ public class UserDTO {
     @Size(min = 2, max = 5)
     private String langKey;
 
+
+    private String phoneNumber;
+
     private String createdBy;
 
     private ZonedDateTime createdDate;
@@ -57,14 +60,14 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this(user.getId(), user.getLogin(), user.getFirstName(), user.getLastName(),
-            user.getEmail(), user.getActivated(), user.getImageUrl(), user.getLangKey(),
+            user.getEmail(), user.getActivated(), user.getImageUrl(), user.getLangKey(),user.getPhoneNumber(),
             user.getCreatedBy(), user.getCreatedDate(), user.getLastModifiedBy(), user.getLastModifiedDate(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
     public UserDTO(Long id, String login, String firstName, String lastName,
-        String email, boolean activated, String imageUrl, String langKey,
+        String email, boolean activated, String imageUrl, String langKey,String phoneNumber,
         String createdBy, ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate,
         Set<String> authorities) {
 
@@ -76,6 +79,7 @@ public class UserDTO {
         this.activated = activated;
         this.imageUrl = imageUrl;
         this.langKey = langKey;
+        this.phoneNumber = phoneNumber;
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;
@@ -143,6 +147,14 @@ public class UserDTO {
         this.lastModifiedDate = lastModifiedDate;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public Set<String> getAuthorities() {
         return authorities;
     }
@@ -157,6 +169,7 @@ public class UserDTO {
             ", imageUrl='" + imageUrl + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
+            ", phoneNumber='" + phoneNumber + '\'' +
             ", createdBy=" + createdBy +
             ", createdDate=" + createdDate +
             ", lastModifiedBy='" + lastModifiedBy + '\'' +

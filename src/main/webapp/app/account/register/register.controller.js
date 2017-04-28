@@ -57,6 +57,8 @@
            vm.validRandomCode = randomPassword(6);
            console.log("validRandomCode");
            console.log(vm.validRandomCode);
+           vm.phoneNumber = phoneNumber;
+           console.log(vm.phoneNumber);
            //SmsService.send(phoneNumber)
 
             if(vm.code=='0'){
@@ -96,6 +98,8 @@
                 vm.doNotMatch = 'ERROR';
             } else {
                 vm.registerAccount.langKey = $translate.use();
+                console.log(vm.phoneNumber);
+                vm.registerAccount.phoneNumber = vm.phoneNumber;
                 vm.doNotMatch = null;
                 vm.error = null;
                 vm.errorUserExists = null;

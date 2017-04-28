@@ -65,6 +65,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "lang_key", length = 5)
     private String langKey;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
     @Size(max = 256)
     @Column(name = "image_url", length = 256)
     private String imageUrl;
@@ -191,6 +194,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setLangKey(String langKey) {
         this.langKey = langKey;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public Set<Authority> getAuthorities() {
