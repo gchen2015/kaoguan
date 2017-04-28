@@ -23,7 +23,26 @@
                 The password and its confirmation do not match!
             </div>
         </div>
-        <div class="col-md-8 col-md-offset-2">
+
+
+        <div class="col-md-8 col-md-offset-2" ng-show="!vm.validResult">
+
+            <label >手机号:</label>
+            <input type="string" class="form-control" ng-model="vm.phoneNumber" style="margin-right: 10px;" required  placeholder="请输入手机号码">
+
+            <button type="button" class="btn btn-primary" ng-click="vm.sendSmsCode(vm.phoneNumber);" ng-bind="vm.codeTitle"></button>
+
+            <br>
+            <label >验证码:</label>
+            <input type="string" class="form-control" ng-model="vm.inPutValidCode" style="margin-right: 10px;" required  placeholder="请输入验证码">
+
+            <button type="button" class="btn btn-primary" ng-click="vm.checkSmsCode(vm.inPutValidCode);" ng-bind="vm.validCodeTitle"></button>
+
+            <br>
+
+        </div>
+        <div class="col-md-8 col-md-offset-2" ng-show="vm.validResult">
+
             <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.register()" show-validation>
 
                 <div class="form-group">
@@ -49,6 +68,7 @@
                     </p>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label class="control-label" for="email" data-translate="global.form.email">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="{{'global.form.email.placeholder' | translate}}"
@@ -112,8 +132,12 @@
                     </div>
                 </div>
 
+
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" data-translate="register.form.button">Register</button>
             </form>
+
+
+
             <p></p>
             <div class="alert alert-warning" data-translate="global.messages.info.authenticated" translate-compile>
                 If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").

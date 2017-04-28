@@ -72,7 +72,7 @@
 
         function register () {
 
-            $state.go('kaoguan.register');
+            $state.go('activity.register');
         }
 
         function requestResetPassword () {
